@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>design convergence studio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+</head>
+<body data-version="interaction-off" class="transition-colors duration-500">
+    <header class="navigation bg-white shadow-lg p-4 flex justify-center sticky top-0 z-10">
+        <div class="flex items-center space-x-8">
+            <h1 class="text-2xl font-bold text-gray-800 hidden sm:block">
+                PTA & Co.
+            </h1>
+            
+            <label class="toggle-switch" role="switch" aria-checked="true" aria-label="버전 전환 스위치">
+                <input type="checkbox" id="version-toggle" checked> 
+                <span class="slider">
+                    <div class="toggle-text">
+                        <span class="toggle-option web-label text-gray-700">인포그래픽</span>
+                        <span class="toggle-option kiosk-label text-gray-700">피지컬 인터랙션</span>
+                    </div>
+                </span>
+            </label>
+        </div>
+    </header>
+
+    <main id="infographic-content" class="content-container">
+        
+        <section id="section-logo" class="snap-section web-content bg-gray-900 text-white flex flex-col justify-center items-center">
+            <div class="text-center w-full max-w-4xl">
+                
+                <div class="neon-background-text">
+                    <p>Because we own your data.</p>
+                    <p>And your choices.</p>
+                    <p>And your life.</p>
+                </div>
+                <div class="logo-group">
+                    <p class="logo-english text-6xl">Post-Truth Algorithm & Co.</p>
+                    <p class="logo-korean text-4xl">포스트트루스 알고리즘 컴퍼니</p>
+                </div>
+
+                <div class="divider"></div>
+
+                <div class="mission-text">
+                    <p class="text-xl leading-relaxed">
+                        저희는 기업 이익을 최우선으로 추구하며, 고객 데이터를 핵심 자산으로 활용합니다.<br>개인정보 수집으로 인한 모든 책임은 고객에게 있으며, 저희는 최대 효율만을 보장합니다.<br>누구도 대체할 수 없는 서비스로, 여러분은 계속 저희를 선택하게 될 것입니다.
+                    </p></div>
+                
+                <div id="scroll-indicator" class="text-center mt-24 text-blue-400 scroll-indicator">
+                    <p class="text-3xl animate-bounce">Scroll Down ↓</p>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-intro" class="snap-section web-content section-intro-style text-white flex flex-col justify-end items-center p-16">
+            <div class="max-w-4xl text-center mb-32">
+                <p class="neo-text leading-snug">
+                    <span id="typewriter-text" data-text="어떻게 하면 자아가 확립되지 않은 청소년들이&#10;SNS 정보를 무분별하게 소비하는 것을 방지하고&#10;소셜미디어를 비판적으로 활용하게 할 수 있을까?"></span>
+                </p>
+            </div>
+        </section>
+        
+        <section id="section-achievements" class="snap-section web-content p-16 flex flex-col justify-center items-center">
+            <div class="max-w-7xl text-center w-full">
+                <h2 class="text-4xl font-extrabold mb-12 body-title">PTA & Co.의 업적</h2>
+                
+                <div class="achievements-metrics flex justify-center space-x-24 mb-12">
+                    <div class="metric-item text-center">
+                        <p class="text-xl font-medium mt-2">체류시간</p>
+                        <p class="text-2xl mt-1">
+                            <span class="metric-value konemono-text counting" data-count="118">1</span>% 증가
+                        </p>
+                    </div>
+                    <div class="metric-item text-center">
+                        <p class="text-xl font-medium mt-2">참여도</p>
+                        <p class="text-2xl mt-1">
+                            <span class="metric-value konemono-text counting" data-count="140">1</span>% 증가
+                        </p>
+                    </div>
+                </div>
+
+                <div class="achievement-cards grid grid-cols-4 gap-8 w-full">
+                    
+                    <div class="card-item bg-white rounded-lg shadow-xl p-6 flex flex-col justify-start">
+                        <div class="card-content">
+                            <p class="card-main-text text-3xl font-bold mb-2">SNS 중독</p>
+                            <p class="card-sub-text mt-auto text-lg">
+                                <span class="pretendard-text">지난해에 비해 </span><span class="konemono-text">34%</span> <span class="pretendard-text">상승했습니다.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card-item bg-white rounded-lg shadow-xl p-6 flex flex-col justify-start">
+                        <div class="card-content">
+                            <p class="card-main-text text-3xl font-bold mb-2">우울증</p>
+                            <p class="card-sub-text mt-auto text-lg">
+                                <span class="pretendard-text">지난해에 비해 </span><span class="konemono-text">28%</span> <span class="pretendard-text">상승했습니다.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card-item bg-white rounded-lg shadow-xl p-6 flex flex-col justify-start">
+                        <div class="card-content">
+                            <p class="card-main-text text-3xl font-bold mb-2">불안</p>
+                            <p class="card-sub-text mt-auto text-lg">
+                                <span class="pretendard-text">지난해에 비해 </span><span class="konemono-text">22%</span> <span class="pretendard-text">상승했습니다.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="card-item bg-white rounded-lg shadow-xl p-6 flex flex-col justify-start">
+                        <div class="card-content">
+                            <p class="card-main-text text-3xl font-bold mb-2">자살률</p>
+                            <p class="card-sub-text mt-auto text-lg">
+                                <span class="pretendard-text">지난해에 비해 </span><span class="konemono-text">16%</span> <span class="pretendard-text">상승했습니다.</span>
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+        
+        <section id="section-reason" class="snap-section web-content p-16 flex flex-col justify-center items-center">
+            <div class="max-w-7xl text-center w-full">
+                <h2 class="text-5xl font-extrabold mb-4 body-title pretendard-text">어째서, PTA일까?</h2>
+                <p class="text-xl mb-12 pretendard-text">
+                    PTA & Co.는 SNS에 취약한 청소년들을 집중 대상으로 추천 알고리즘을 연구합니다.
+                </p>
+                
+                <div class="carousel-container">
+                    <div class="carousel-viewport">
+                        <div class="carousel-track" id="reason-carousel-track">
+                            <div class="carousel-item">
+                                <img src="images/data1.png" alt="데이터 이미지 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/data2.png" alt="데이터 이미지 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/data3.png" alt="데이터 이미지 3">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="images/data4.png" alt="데이터 이미지 4">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-controls mt-6 flex justify-center items-center">
+                    <button id="prev-btn" class="bg-gray-700 text-white p-2 rounded-full mx-2 hover:bg-gray-600 transition">
+                        &lt; 이전
+                    </button>
+                    
+                    <button id="toggle-play-btn" class="bg-red-600 text-white p-2 rounded-full mx-4 w-24 hover:bg-red-700 transition">
+                        멈춤
+                    </button>
+
+                    <button id="next-btn" class="bg-gray-700 text-white p-2 rounded-full mx-2 hover:bg-gray-600 transition">
+                        다음 &gt;
+                    </button>
+                </div>
+
+                <div id="carousel-indicators" class="flex justify-center mt-4">
+                </div>
+
+            </div>
+        </section>
+        
+        <section id="section-chairman" class="snap-section web-content p-16 flex flex-col justify-center items-center">
+            <h2 class="text-4xl font-extrabold mb-6 body-title">CEO</h2>
+            <div class="chairman-content grid grid-cols-2 gap-12 w-full max-w-5xl items-center">
+                
+                <div class="chairman-photo flex justify-end">
+                    <img src="images/ceo_placeholder.png" alt="CEO 사진" class="w-64 h-64 object-cover rounded-full shadow-lg">
+                </div>
+
+                <div class="chairman-text text-left">
+                    <h3 class="text-3xl font-bold mb-4">청소년들은 계속 저희를 선택하게 될 것입니다.</h3><br>
+                    <p class="text-lg leading-relaxed pretendard-text">
+                        PTA & Co.는 오랜 연구 끝에 청소년들이 아동이나 성인들에 비해<br>
+                        SNS에 취약하다는 인사이트를 도출하게 되었습니다.<br><br>
+                        PTA & Co.는 어떠한 수단을 사용해서라도 청소년들이 헤어나올 수 없는
+                        SNS 서비스를 제공할 수 있도록 노력할 것입니다.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-dept" class="snap-section web-content p-16 flex flex-col justify-center items-center">
+    <div class="max-w-7xl text-center w-full">
+        <h2 class="text-4xl font-extrabold mb-12 body-title">부서 소개</h2>
+        
+        <div class="department-cards grid grid-cols-4 gap-8 w-full max-w-6xl mx-auto">
+            
+            <div class="dept-item-group">
+                <div class="dept-card rounded-lg shadow-xl overflow-hidden cursor-pointer transition-transform hover:scale-105">
+                    <img src="images/dept_data.png" alt="데이터 수집부 이미지" class="w-full h-48 object-cover">
+                </div>
+                <p class="dept-name text-xl font-bold mt-4">데이터 수집부</p>
+            </div>
+
+            <div class="dept-item-group">
+                <div class="dept-card rounded-lg shadow-xl overflow-hidden cursor-pointer transition-transform hover:scale-105">
+                    <img src="images/dept_algo.png" alt="알고리즘 운영부 이미지" class="w-full h-48 object-cover">
+                </div>
+                <p class="dept-name text-xl font-bold mt-4">맞춤 알고리즘 운영부</p>
+            </div>
+
+            <div class="dept-item-group">
+                <div class="dept-card rounded-lg shadow-xl overflow-hidden cursor-pointer transition-transform hover:scale-105">
+                    <img src="images/dept_ui.png" alt="피드 설계부 이미지" class="w-full h-48 object-cover">
+                </div>
+                <p class="dept-name text-xl font-bold mt-4">사용자 피드 설계부 (UI)</p>
+            </div>
+
+            <div class="dept-item-group">
+                <div class="dept-card rounded-lg shadow-xl overflow-hidden cursor-pointer transition-transform hover:scale-105">
+                    <img src="images/dept_ux.png" alt="피드 운영부 이미지" class="w-full h-48 object-cover">
+                </div>
+                <p class="dept-name text-xl font-bold mt-4">사용자 피드 운영부 (UX)</p>
+            </div>
+            
+        </div>
+
+        <p class="mt-16 text-3xl font-bold text-red-600 konemono-text">
+            관심 있는 부서를 클릭해보세요!
+        </p>
+    </div>
+</section>
+
+        <section id="poster-area" class="snap-section web-content poster-area bg-gray-200 flex flex-col justify-center items-center p-8">
+            <h2 class="text-3xl font-bold mb-6 text-center body-title"></h2>
+            
+            <div id="poster-group" class="group relative w-full h-full max-w-lg mx-auto overflow-hidden rounded-lg shadow-xl">
+                <img 
+                    id="poster-img"
+                    src="images/infographic_poster.png" 
+                    alt="인포그래픽 포스터" 
+                    class="w-full h-auto object-contain transition-transform duration-200 ease-out"
+                >
+            </div>
+
+            <p class="mt-4 text-sm text-center web-only text-gray-600">
+                마우스를 포스터 위에 올려 해당 위치를 확대하여 보세요.
+            </p>
+        </section>
+
+        
+        <section id="section-game" class="full-screen-game hidden bg-gray-900 text-white flex justify-center items-center">
+            <div class="text-center">
+                <h2 class="text-6xl font-extrabold text-red-500 mb-8">Physical interaction</h2>
+                <p class="text-2xl mb-12">Play post-truth algorithm & Co.</p>
+                <button id="start-game-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-full text-xl transition duration-300">
+                    게임 시작
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
