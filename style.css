@@ -148,9 +148,22 @@ body[data-version="interaction-on"] #section-game {
 
 /* SECTION 1: 로고 섹션 */
 #section-logo {
-    background-color: #01001C;
+    /* *** 수정: background-image를 명시적으로 상단에 배치 *** */
+    background-image: url('images/bg01.png'); /* 경로 다시 확인: 'images/bg01.png' */
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
     position: relative; 
     overflow: hidden; 
+}
+
+.highlight-word {
+    color: #74A3FF; /* 요청하신 색상 적용 */
+    /* text-shadow는 부모 (.logo-english/.logo-korean)에서 상속받음 */
+}
+
+#section-logo > div.text-center.w-full.max-w-7xl {
+    margin-top: 0vh; 
 }
 
 /* 네온 배경 텍스트 (왼쪽 정렬) */
@@ -215,9 +228,10 @@ body[data-version="interaction-on"] #section-game {
     font-size: 2.8rem; 
     font-weight: 700;
     letter-spacing: 0em; 
-    margin-bottom: 0.5rem;
+    margin-bottom: 1.5rem;
     white-space: nowrap; 
     display: block; 
+    text-shadow: 0px 4px 16px #C8C6FF;
 }
 
 #section-logo .logo-korean {
@@ -225,12 +239,13 @@ body[data-version="interaction-on"] #section-game {
     font-size: 1.8rem;
     letter-spacing: 0.1em;
     margin-bottom: 3rem; 
+    text-shadow: 0px 4px 16px #C8C6FF;
 }
 
 /* 구분선 스타일 */
 #section-logo .divider {
     width: 500px; 
-    height: 3px;
+    height: 0.5px;
     background-color: #f9fafb;
     margin: 6rem auto 6rem auto; 
     z-index: 1; 
@@ -240,13 +255,14 @@ body[data-version="interaction-on"] #section-game {
 /* 미션 텍스트 스타일 */
 #section-logo .mission-text {
     width: 100%;
-    max-width: 700px;
-    font-size: 1.5rem;
+    max-width: 1200px;
+    font-size: 16px;
     line-height: 1.8;
     margin: 0 auto; 
     z-index: 1; 
     position: relative; 
-    font-family: 'Pretendard', sans-serif;
+    font-family: 'NeoDonggeunmo', monospace;
+    text-shadow: 0px 4px 16px #C8C6FF;
 }
 
 /* SECTION 2: 회사 소개 및 비전 */
@@ -260,6 +276,39 @@ body[data-version="interaction-on"] #section-game {
     color: white; 
 }
 
+.intro-title-box {
+    width: 367px;
+    height: 76px;
+    /* *** 수정: 배경색을 투명하게 설정 *** */
+    background-color: transparent; 
+    border-radius: 7px;
+    /* *** 추가: 테두리(stroke) 적용 *** */
+    border: 1px solid #FFFFFF; 
+    
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4); /* 그림자 유지 */
+    
+    /* 배치: 중앙 상단보다 살짝 아래 */
+    position: absolute;
+    top: 30%; 
+    left: 50%;
+    transform: translateX(-50%); 
+    z-index: 4; 
+    
+    /* 텍스트 정렬 */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro-title-text {
+    font-size: 24px;
+    font-family: 'FounderYooGeonWook', sans-serif;
+    /* *** 수정: 텍스트를 흰색으로 설정하여 어두운 배경 위에서 보이게 함 *** */
+    color: #FFFFFF; 
+    font-weight: bold;
+    text-shadow: 0px 4px 16px #C8C6FF;
+}
+
 /* Dimming (어둡게 처리) 효과 */
 #section-intro::before {
     content: "";
@@ -268,7 +317,7 @@ body[data-version="interaction-on"] #section-game {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3);
+    background-color: rgba(0, 0, 0, 0.4) !important;
     z-index: 2;
 }
 
@@ -278,12 +327,12 @@ body[data-version="interaction-on"] #section-game {
     z-index: 3; 
     position: relative;
     
-    font-size: 1.6rem; 
-    line-height: 2;   
+    font-size: 20px; 
+    line-height: 2;
 
     margin-bottom: -4rem; 
 
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.8);
+    text-shadow: 0px 4px 16px #C8C6FF;
 }
 
 /* Auto-type 애니메이션 커서 */
