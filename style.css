@@ -356,25 +356,54 @@ body[data-version="interaction-on"] #section-game {
 
 
 /* SECTION 3: 주요 업적 및 성과 - 카드 배경 및 폰트 수정 */
-#section-achievements {
+#section-achievements,
+#section-achievements-2 {
     background-color: #01001C;
     color: #FFFFFF; 
     font-family: 'Pretendard', sans-serif; 
     text-align: center; 
 }
 
+#section-achievements {
+    background-image: url('images/bg02.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
 /* 섹션 제목 스타일 */
 #section-achievements h2 {
     color: #FFFFFF;
-    margin-top: 0; 
-    margin-bottom: 2rem; 
+    margin: 0;
     font-size: 2.5rem; 
+}
+
+#section-achievements .achievements-title-box {
+    width: 367px;
+    height: 76px;
+    background-color: transparent; 
+    border-radius: 7px;
+    border: 1px solid #FFFFFF; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0 auto 3rem;
+}
+
+#section-achievements .achievements-title-text {
+    margin: 0;
+    font-size: 24px;
+    font-family: 'FounderYooGeonWook', sans-serif;
+    letter-spacing: 0.05em;
+    text-shadow: 0px 4px 16px #C8C6FF;
 }
 
 /* 상단 지표 수치 및 텍스트 */
 #section-achievements .metric-item p {
     color: #FFFFFF; 
-    font-family: 'Pretendard', sans-serif;
+    font-family: 'NeoDonggeunmo', monospace;
+    text-shadow: 0px 4px 16px #C8C6FF;
 }
 
 /* 수치만 빨간색 Konemono 폰트로 적용 */
@@ -385,16 +414,19 @@ body[data-version="interaction-on"] #section-game {
     display: block; 
     line-height: 1;
     margin-bottom: 0.5rem;
+    text-shadow: 0px 4px 16px #C8C6FF;
 }
 
 /* 카드 섹션 그리드 및 폰트 적용 */
-#section-achievements .achievement-cards {
+#section-achievements .achievement-cards,
+#section-achievements-2 .achievement-cards {
     max-width: 1200px; 
     margin: 0 auto;
     gap: 3rem; 
 }
 
-#section-achievements .card-item {
+#section-achievements .card-item,
+#section-achievements-2 .card-item {
     min-height: 380px; 
     display: flex;
     flex-direction: column;
@@ -422,7 +454,8 @@ body[data-version="interaction-on"] #section-game {
 .achievement-cards > div:nth-child(4) { background-image: url('images/obj5.png'); }
 
 /* 카드 디밍 효과 */
-#section-achievements .card-item::before {
+#section-achievements .card-item::before,
+#section-achievements-2 .card-item::before {
     content: "";
     position: absolute;
     top: 0;
@@ -434,7 +467,8 @@ body[data-version="interaction-on"] #section-game {
 }
 
 /* 카드 내부 콘텐츠 및 텍스트 스타일 */
-#section-achievements .card-content {
+#section-achievements .card-content,
+#section-achievements-2 .card-content {
     position: relative;
     z-index: 2; 
     color: white; 
@@ -443,23 +477,28 @@ body[data-version="interaction-on"] #section-game {
 }
 
 #section-achievements .card-main-text,
-#section-achievements .card-sub-text {
+#section-achievements .card-sub-text,
+#section-achievements-2 .card-main-text,
+#section-achievements-2 .card-sub-text {
     color: #FFFFFF; 
     font-family: 'Pretendard', sans-serif; 
 }
 
 /* 카드 내 영문/숫자 텍스트 (Konemono 적용) */
-#section-achievements .konemono-text {
+#section-achievements .konemono-text,
+#section-achievements-2 .konemono-text {
     font-family: 'Konemono', monospace;
     font-weight: 700;
     color: #DC2626; /* 빨간색 적용 */
 }
 
-#section-achievements .card-main-text {
+#section-achievements .card-main-text,
+#section-achievements-2 .card-main-text {
     margin-bottom: 0.5rem; 
     font-weight: 700;
 }
-#section-achievements .card-sub-text {
+#section-achievements .card-sub-text,
+#section-achievements-2 .card-sub-text {
     margin-top: 0;
     line-height: 1.4;
     font-size: 1rem;

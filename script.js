@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // ************************
 
     // *** 3D 카드 및 CEO 이미지 관련 DOM 요소 ***
-    const cards = document.querySelectorAll('#section-achievements .card-item');
+    const cards = document.querySelectorAll('#section-achievements .card-item, #section-achievements-2 .card-item');
     const chairmanPhoto = document.querySelector('#section-chairman .chairman-photo img');
 
 
