@@ -707,7 +707,7 @@ body[data-version="interaction-on"] #section-game {
     border: 1px solid #FFFFFF; 
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     position: absolute;
-    top: -30%; /* 상단으로 이동 */
+    top: -10rem; /* 상단으로 이동 */
     left: 5%; /* 중앙 기준으로 설정 */ 
     transform: translateY(-50%);
     
