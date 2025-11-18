@@ -5,6 +5,7 @@
 
 
 /* 한글 폰트 정의: FounderYooGeonWook (로고 부제 등에 사용) */
+/* 폰트 */
 @font-face {
     font-family: 'FounderYooGeonWook';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff') format('woff');
