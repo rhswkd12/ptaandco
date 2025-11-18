@@ -2,7 +2,6 @@ document.addEventListener('DOMContentLoaded', () => {
     const body = document.body;
     // const toggleInput = document.getElementById('version-toggle'); <--- 제거됨
     
-    // 3
     // 포스터 관련 DOM 요소
     const posterGroup = document.getElementById('poster-group');
     const posterImg = document.getElementById('poster-img');
