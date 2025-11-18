@@ -341,7 +341,7 @@ body[data-version="interaction-on"] #section-game {
 
 /* #section-logo 내부 콘텐츠 래퍼를 위로 이동 */
 #section-logo > div.text-center.w-full.max-w-7xl {
-    margin-top: -5vh; 
+    margin-top: -10vh; 
 }
 
 /* SECTION 2: 회사 소개 및 비전 */
@@ -399,6 +399,7 @@ body[data-version="interaction-on"] #section-game {
     z-index: 3;
     color: #FFFFFF; 
     text-align: left !important; 
+    top: -80px;
 }
 
 /* 4개 항목을 가로로 배치 (HTML에서 grid-cols-4로 변경되었다고 가정) */
@@ -437,36 +438,16 @@ body[data-version="interaction-on"] #section-game {
     font-size: 1rem;
 }
 
-/* 기업 소개 타이틀 박스 스타일 */
-.intro-title-box {
-    width: 367px;
-    height: 76px;
-    background-color: transparent; 
-    border-radius: 7px;
-    border: 1px solid #FFFFFF; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    
-    /* *** 수정: 좌측 정렬 및 마진 적용 *** */
-    position: absolute;
-    top: 20%; /* 상단으로 이동 */
-    left: 40%; /* 중앙 기준으로 설정 */
-    
-    /* 1. max-w-7xl의 시작점(약 10%)까지 이동 후, 2. 박스 자체 너비의 50%만큼 중앙으로 당겨온 효과를 제거
-       = 화면 너비 (100vw)에서 max-w-7xl이 차지하는 공간을 뺀 마진을 계산해야 합니다. (복잡)
-       
-       => 임시적으로, 중앙 정렬 제거 후 왼쪽에서 10% 띄우는 방식으로 수정합니다.
-    */
-    left: 16%; /* 왼쪽으로 이동 */
-    transform: translateY(-50%); /* X축 정렬 제거 */
-    
-    z-index: 4; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
+/* 기업 소개 타이틀 텍스트 (상자 제거) */
+#section-intro .intro-title-inline {
+    align-self: flex-start;
+    margin-left: 244px;
+    margin-bottom: 150px;
+    margin-top: -1rem;
 }
 
 .intro-title-text {
-    font-size: 24px;
+    font-size: 36px;
     font-family: 'FounderYooGeonWook', sans-serif;
     color: #FFFFFF; 
     font-weight: bold;
@@ -486,30 +467,14 @@ body[data-version="interaction-on"] #section-game {
     text-align: center; 
 }
 
-.achievements-title-box-new {
-    width: 367px;
-    height: 76px;
-    background-color: transparent; 
-    border-radius: 7px;
-    border: 1px solid #FFFFFF; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    
-    position: absolute;
-    top: 20%; /* 상단으로 이동 */
-    left: 16%; /* 왼쪽으로 이동 */
-    transform: translateY(-50%); 
-    z-index: 4; 
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.achievements-title-box-new .intro-title-text {
-    font-size: 24px;
-    font-family: 'FounderYooGeonWook', sans-serif;
-    color: #FFFFFF; 
-    font-weight: bold;
+.achievements-title-inline {
+    align-self: flex-start;
+    font-size: 36px;
+    margin-left: 242px;
+    font-family: 'FounderYooGeonWook';
+    position: relative;
+    z-index: 6;
+    top: 175px;
 }
 
 /* 기존 콘텐츠 래퍼의 위치 조정: 타이틀 박스 아래에 오도록 마진을 조정 */
@@ -699,27 +664,18 @@ body[data-version="interaction-on"] #section-game {
     margin-top: 4rem;
 }
 
-.reason-title-box {
-    width: 367px;
-    height: 76px;
-    background-color: transparent; 
-    border-radius: 7px;
-    border: 1px solid #FFFFFF; 
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
-    position: absolute;
-    top: -10rem; /* 상단으로 이동 */
-    left: 4.5%; /* 중앙 기준으로 설정 */ 
-    transform: translateY(-50%);
-    
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 4;
+.reason-title-inline {
+    margin-left: 90px;
+    margin-top: 0rem;
+    margin-bottom: 50px;
+    font-family: 'FounderYooGeonWook';
+    font-size: 36px;
 }
 
 .reason-description {
-    margin-left: 4.5%;
-    margin-top: 8rem;
+    margin-left: 90px;
+    margin-top: 120px;
+    margin-bottom: 100px;
     max-width: 1000px;
     text-align: left;
     font-family: 'NeoDonggeunmo';
@@ -728,6 +684,254 @@ body[data-version="interaction-on"] #section-game {
     display: flex;
     flex-direction: column;
     gap: 1.5rem;
+}
+
+/* SECTION 4-1: 서비스 쇼케이스 */
+#section-service-showcase {
+    background-image: url('images/bg05.png');
+    color: #FFFFFF;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.service-showcase-content {
+    width: 100%;
+    position: relative;
+    top: 0px;
+}
+
+.service-card-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.service-card {
+    width: 320px;
+    min-height: 400px;
+    height: auto;
+    border-radius: 23px;
+    background-color: #E6DEF5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(6px);
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+}
+
+.service-card img {
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 40px rgba(0,0,0,0.45));
+}
+
+.service-card-toggle {
+    width: 100%;
+    margin-top: 40px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #2B2A75;
+    font-family: 'FounderYooGeonWook';
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.service-card-toggle-arrow {
+    transition: transform 0.3s ease;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.service-card-details {
+    width: 100%;
+    max-height: 0;
+    margin-top: 37px;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+    color: #2B2A75;
+    font-family: 'NeoDonggeunmo';
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.service-card-details p {
+    margin-top: 0.5rem;
+}
+
+.service-card.open .service-card-details {
+    max-height: 200px;
+}
+
+.service-card.open .service-card-toggle-arrow {
+    transform: rotate(180deg);
+}
+
+/* SECTION 4-2: 서비스 종료 리포트 */
+#section-service-end {
+    background-image: url('images/bg06.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.service-end-content {
+    width: 100%;
+}
+
+.service-end-hero {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+}
+
+.service-end-line {
+    width: 2px;
+    height: 118px;
+    background-image: linear-gradient(#7A79A4 50%, transparent 50%);
+    background-size: 4px 8px;
+    position: relative;
+    margin-bottom: 50px;
+}
+
+.service-end-line::after {
+    content: "";
+    position: absolute;
+    bottom: -8px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #D7D7E4;
+}
+
+.service-end-hero p {
+    max-width: 1200px;
+    font-family: 'NeoDonggeunmo';
+    font-size: 20px;
+    line-height: 1.7;
+    color: #ffffff;
+    text-shadow: 0px 4px 16px #C8C6FF;
+    margin-bottom: 200px;
+}
+
+/* SECTION 4-3: 주요 관찰 대상 */
+#section-service-subject {
+    background-image: url('images/bg07.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.service-subject-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-subject-title {
+    margin-bottom: 2rem;
+    margin-left: -1080px;
+    font-size: 36px;
+    color: #1B1863; 
+    font-family: 'FounderYooGeonWook';
+}
+
+.service-subject-glass-card {
+    width: 1280px;
+    height: 646px;
+    border-radius: 32px;
+    background-color: rgba(225, 218, 253, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    position: relative;
+    padding-top: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.service-subject-glass-badge {
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 367px;
+    height: 45px;
+    background-color: #2E3AF0;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'FounderYooGeonWook';
+    font-size: 24px;
+    color: #FFFFFF;
+    letter-spacing: 0.05em;
+}
+
+.service-subject-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 80px;
+}
+
+.service-subject-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    text-align: left;
+}
+
+.service-subject-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.service-subject-label {
+    font-family: 'NeoDonggeunmo';
+    font-size: 20px;
+    color: var(--subject-label-color, #FFFFFF);
+    display: inline-block;
+}
+
+.service-subject-count {
+    font-family: 'NeoDonggeunmo';
+    font-size: 20px;
+    color: var(--subject-label-color, #FFFFFF);
+}
+
+.service-subject-label[data-color="#1B1862"] { color: #1B1862; }
+.service-subject-label[data-color="#2E3AF0"] { color: #2E3AF0; }
+.service-subject-label[data-color="#3094FF"] { color: #3094FF; }
+.service-subject-count[data-color="#1B1862"] { color: #1B1862; }
+.service-subject-count[data-color="#2E3AF0"] { color: #2E3AF0; }
+.service-subject-count[data-color="#3094FF"] { color: #3094FF; }
+
+.service-subject-group img {
+    width: auto;
+    height: auto;
+    max-height: 260px;
+    object-fit: contain;
 }
 
 /* SECTION 5: CEO 소개 (#section-chairman) */

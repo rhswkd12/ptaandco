@@ -25,6 +25,7 @@ document.addEventListener('DOMContentLoaded', () => {
     // *** 3D 카드 및 CEO 이미지 관련 DOM 요소 ***
     const cards = document.querySelectorAll('#section-achievements .card-item');
     const chairmanPhoto = document.querySelector('#section-chairman .chairman-photo img');
+    const serviceCardToggles = document.querySelectorAll('.service-card-toggle');
 
 
     // *** 캐러셀 관련 DOM 요소 및 변수 ***
@@ -152,6 +153,20 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = `perspective(1000px)`;
             card.style.filter = `brightness(1)`;
             card.style.boxShadow = `0 0 0 0 rgba(0, 0, 0, 0.5)`;
+        });
+    });
+
+    // --- 서비스 카드 토글 ---
+    serviceCardToggles.forEach(toggle => {
+        toggle.addEventListener('click', () => {
+            const card = toggle.closest('.service-card');
+            const details = card.querySelector('.service-card-details');
+            const isOpen = card.classList.toggle('open');
+            if (isOpen) {
+                details.style.maxHeight = details.scrollHeight + 'px';
+            } else {
+                details.style.maxHeight = 0;
+            }
         });
     });
 
