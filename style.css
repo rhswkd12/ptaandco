@@ -449,7 +449,7 @@ body[data-version="interaction-on"] #section-game {
     /* *** 수정: 좌측 정렬 및 마진 적용 *** */
     position: absolute;
     top: 20%; /* 상단으로 이동 */
-    left: 50%; /* 중앙 기준으로 설정 */
+    left: 40%; /* 중앙 기준으로 설정 */
     
     /* 1. max-w-7xl의 시작점(약 10%)까지 이동 후, 2. 박스 자체 너비의 50%만큼 중앙으로 당겨온 효과를 제거
        = 화면 너비 (100vw)에서 max-w-7xl이 차지하는 공간을 뺀 마진을 계산해야 합니다. (복잡)
@@ -708,7 +708,7 @@ body[data-version="interaction-on"] #section-game {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     position: absolute;
     top: -10rem; /* 상단으로 이동 */
-    left: 5%; /* 중앙 기준으로 설정 */ 
+    left: 4.5%; /* 중앙 기준으로 설정 */ 
     transform: translateY(-50%);
     
     display: flex;
@@ -718,7 +718,7 @@ body[data-version="interaction-on"] #section-game {
 }
 
 .reason-description {
-    margin-left: 5%;
+    margin-left: 4.5%;
     margin-top: 8rem;
     max-width: 1000px;
     text-align: left;
