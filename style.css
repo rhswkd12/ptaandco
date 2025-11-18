@@ -3,9 +3,8 @@
 /* Google Fonts에서 Kode Mono 폰트의 CSS 정의를 가져옵니다. */
 @import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
 
-
+/* 3 */
 /* 한글 폰트 정의: FounderYooGeonWook (로고 부제 등에 사용) */
-/* 폰트 */
 @font-face {
     font-family: 'FounderYooGeonWook';
     src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff') format('woff');
