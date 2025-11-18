@@ -330,7 +330,7 @@ body[data-version="interaction-on"] #section-game {
 #section-logo .mission-text {
     width: 100%;
     max-width: 1200px;
-    font-size: 1rem;
+    font-size: 24px;
     line-height: 1.8;
     margin: 0 auto; 
     z-index: 1; 
@@ -404,7 +404,7 @@ body[data-version="interaction-on"] #section-game {
 /* 4개 항목을 가로로 배치 (HTML에서 grid-cols-4로 변경되었다고 가정) */
 .intro-value-cards .grid {
     grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4개 열로 강제 */
-    gap: 1.5rem; /* 카드 사이 간격을 줄여서 가로 배치 용이하게 */
+    gap: 0rem; /* 카드 사이 간격을 줄여서 가로 배치 용이하게 */
     justify-content: center;
 }
 
@@ -413,6 +413,7 @@ body[data-version="interaction-on"] #section-game {
     position: relative; 
     margin-top: 1.5rem; /* 구분선 위 공간 확보 */
     margin-bottom: 1.5rem;
+    font-size: 24px;
     font-family: 'FounderYooGeonWook';
 }
 
@@ -447,7 +448,7 @@ body[data-version="interaction-on"] #section-game {
     
     /* *** 수정: 좌측 정렬 및 마진 적용 *** */
     position: absolute;
-    top: 30%; 
+    top: 20%; /* 상단으로 이동 */
     left: 50%; /* 중앙 기준으로 설정 */
     
     /* 1. max-w-7xl의 시작점(약 10%)까지 이동 후, 2. 박스 자체 너비의 50%만큼 중앙으로 당겨온 효과를 제거
@@ -455,7 +456,7 @@ body[data-version="interaction-on"] #section-game {
        
        => 임시적으로, 중앙 정렬 제거 후 왼쪽에서 10% 띄우는 방식으로 수정합니다.
     */
-    left: 19.5%; /* 왼쪽에서 10% 위치에 배치 (시각적 정렬) */
+    left: 16%; /* 왼쪽으로 이동 */
     transform: translateY(-50%); /* X축 정렬 제거 */
     
     z-index: 4; 
@@ -475,6 +476,10 @@ body[data-version="interaction-on"] #section-game {
 
 /* SECTION 3: 주요 업적 및 성과 */
 #section-achievements {
+    background-image: url('images/bg03.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
     background-color: #01001C;
     color: #FFFFFF; 
     font-family: 'Pretendard', sans-serif; 
@@ -490,8 +495,8 @@ body[data-version="interaction-on"] #section-game {
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
     
     position: absolute;
-    top: 30%; 
-    left: 20%; 
+    top: 20%; /* 상단으로 이동 */
+    left: 16%; /* 왼쪽으로 이동 */
     transform: translateY(-50%); 
     z-index: 4; 
     
@@ -511,50 +516,115 @@ body[data-version="interaction-on"] #section-game {
 #section-achievements .achievements-content-wrapper {
     /* *** 수정: 마진을 줄여서 콘텐츠를 위로 당김 *** */
     margin-top: 5rem; /* 10rem에서 5rem으로 축소 */
+    padding-top: 24rem; /* 고정된 스티키 박스 영역만큼 여백 추가 */
+    padding-bottom: 4rem;
+    position: relative;
 }
 
-/* 중앙 이미지 컨테이너 스타일 */
-.center-image-container {
+/* 업적 섹션 스티키 플레이스홀더 */
+.achievements-sticky-placeholder {
+    width: 500px;
+    height: 300px;
+    border-radius: 24px;
+    position: fixed;
+    top: 255px;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 5;
+    margin: 0;
+    background-color: rgba(230, 222, 245, 0.9);
+    border: 1px solid rgba(230, 222, 245, 0.6);
+    backdrop-filter: blur(8px);
+    background-image: url('images/obj06.png');
+    background-size: 120% auto;
+    background-repeat: no-repeat;
+    background-position: calc(50% - 10px) calc(40% - 40px);
+    pointer-events: none;
+    font-family: 'NeoDonggeunmo';
+    color: #322749;
+}
+
+.achievements-sticky-placeholder .sticky-label {
+    position: absolute;
+    top: 30px;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+}
+
+.achievements-sticky-placeholder .sticky-label-left {
+    left: 45px;
+    text-align: left;
+}
+
+.achievements-sticky-placeholder .sticky-label-right {
+    right: 25px;
+    text-align: right;
+}
+
+.achievements-sticky-placeholder .sticky-label-bottom-left,
+.achievements-sticky-placeholder .sticky-label-bottom-right {
+    position: absolute;
+    bottom: 30px;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+}
+
+.achievements-sticky-placeholder .sticky-label-bottom-left {
+    top: 220px;
+    left: 45px;
+}
+
+.achievements-sticky-placeholder .sticky-label-bottom-right {
+    top: 220px;
+    right: 40px;
+    text-align: right;
+}
+
+.achievements-sticky-placeholder .sticky-subtext {
+    position: absolute;
+    font-family: 'NeoDonggeunmo';
+    letter-spacing: 0.05em;
     display: flex;
-    justify-content: center;
-    align-items: center;
-    /* *** 수정: 이미지와 카드 사이 간격을 좁힘 (margin-top/bottom 조정) *** */
-    margin-top: 1rem; /* 2rem에서 1rem으로 축소 */
-    margin-bottom: 1rem; /* 2rem에서 1rem으로 축소 */
+    align-items: baseline;
+    gap: 8px;
 }
 
-.achievement-center-img {
-    width: 607px;
-    height: 344.8px;
-    display: block;
-    max-width: none; 
-    
-    /* *** 추가: 오른쪽으로 살짝 이동 및 트랜지션 설정 (확대 애니메이션 대비) *** */
-    transition: transform 0.3s ease-in-out; /* 확대 효과를 부드럽게 */
-    transform: translateX(20px); /* 오른쪽으로 20px 이동 */
-    object-fit: cover; /* 이미지가 잘릴 경우를 대비해 추가 (선택 사항) */
+.achievements-sticky-placeholder .sticky-subtext-left {
+    top: 240px;
+    left: 60px;
 }
 
-/* *** 추가: 이미지 호버 시 확대 기능 *** */
-.achievement-center-img:hover {
-    transform: translateX(20px) scale(1.05); /* 기존 이동 유지 + 5% 확대 */
-    cursor: zoom-in; /* 사용자에게 상호작용 가능함을 알림 */
+.achievements-sticky-placeholder .sticky-subtext-right {
+    top: 240px;
+    right: 50px;
+    justify-content: flex-end;
+}
+
+.achievements-sticky-placeholder .sticky-subtext-number {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.achievements-sticky-placeholder .sticky-subtext-desc {
+    font-size: 18px;
 }
 
 /* 카드 스타일 */
 #section-achievements .achievement-cards {
     max-width: 1200px; 
-    margin-top: 0.5rem;
-    gap: 5rem; 
+    margin-top: 3rem; /* 카드 섹션을 위로 이동 */
+    gap: 4rem; 
 }
 
 #section-achievements .card-item {
-    min-height: 300px; /* 최소 높이를 설정하여 너무 작아지는 것은 방지 */
+    min-height: 330px; /* 최소 높이를 설정하여 너무 작아지는 것은 방지 */
     height: auto;
     display: flex;
     flex-direction: column;
     justify-content: flex-end; 
     text-align: left; 
+    margin-top: 3rem;
     
     background-size: cover;
     background-position: center;
@@ -564,7 +634,7 @@ body[data-version="interaction-on"] #section-game {
     padding: 1.5rem;
     
     /* 3D 효과 CSS 적용 */
-    transition: .2s;
+    transition: transform 0.3s ease-out, filter 0.3s ease-out, box-shadow 0.3s ease-out;
     transform: perspective(1000px); 
     filter: brightness(1);
     box-shadow: 0 0 0 0 rgba(48, 65, 0, 0.5); 
@@ -577,16 +647,16 @@ body[data-version="interaction-on"] #section-game {
 .achievement-cards > div:nth-child(4) { background-image: url('images/obj5.png'); }
 
 /* 카드 디밍 효과 */
-#section-achievements .card-item::before {
+/* #section-achievements .card-item::before {
     content: "";
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.3); /* 30% 디밍 */
+    background-color: rgba(0, 0, 0, 0.3); 
     z-index: 1;
-}
+} */
 
 /* 카드 내부 콘텐츠 및 텍스트 스타일 */
 #section-achievements .card-content {
@@ -597,58 +667,67 @@ body[data-version="interaction-on"] #section-game {
     padding-bottom: 0;
 }
 
-#section-achievements .card-main-text,
+#section-achievements .card-main-text{
+    color: #FFFFFF; 
+    font-family: 'FounderYooGeonWook';
+    font-size: 24px;
+}
+
 #section-achievements .card-sub-text {
     color: #FFFFFF; 
-    font-family: 'Pretendard', sans-serif; 
+    font-size: 20px;
+    font-family: 'NeoDonggeunmo'; 
 }
 
 /* 카드 내 영문/숫자 텍스트 (Konemono 적용) */
 #section-achievements .konemono-text {
-    font-family: 'Konemono', monospace;
+    font-family: 'NeoDonggeunmo';
     font-weight: 700;
-    color: #DC2626; /* 빨간색 적용 */
+    color: #74A3FF; /* 빨간색 적용 */
 }
 
-/* SECTION 4: 어째서, PTA일까? (#section-reason) */
+/* SECTION 4: 서비스 소개 (#section-reason) */
 #section-reason {
-    background-color: #01001C;
+    background-image: url('images/bg04.png'); 
     color: #FFFFFF;
     font-family: 'Pretendard', sans-serif;
 }
 
-/* #section-reason 내부의 주 콘텐츠 컨테이너에 마진을 추가하여 아래로 이동 */
-#section-reason > div.max-w-7xl.text-center.w-full {
-    margin-top: 5rem; 
-}
-
-#section-reason h2 {
-    color: #FFFFFF;
-    font-size: 2.5rem; /* 제목 크기 통일 */
-    margin-top: 0; 
-    margin-bottom: 5rem; 
-}
-
-/* 캐러셀 스타일 */
-.carousel-viewport {
+#section-reason .reason-content {
+    position: relative;
     width: 100%;
-    height: 400px; 
-    overflow-x: hidden;
-    background-color: #01001C; 
+    margin-top: 4rem;
 }
 
-/* 캐러셀 아이템 */
-.carousel-item {
-    flex: 0 0 100%; 
-    width: 100%;
-    height: 100%;
-    background-color: #01001C; 
-    border-radius: 8px;
-    overflow: hidden;
+.reason-title-box {
+    width: 367px;
+    height: 76px;
+    background-color: transparent; 
+    border-radius: 7px;
+    border: 1px solid #FFFFFF; 
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.4);
+    position: absolute;
+    top: -30%; /* 상단으로 이동 */
+    left: 5%; /* 중앙 기준으로 설정 */ 
+    transform: translateY(-50%);
     
     display: flex;
     justify-content: center;
     align-items: center;
+    z-index: 4;
+}
+
+.reason-description {
+    margin-left: 5%;
+    margin-top: 8rem;
+    max-width: 1000px;
+    text-align: left;
+    font-family: 'NeoDonggeunmo';
+    font-size: 20px;
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
 }
 
 /* SECTION 5: CEO 소개 (#section-chairman) */

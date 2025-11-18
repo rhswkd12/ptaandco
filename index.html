@@ -116,16 +116,27 @@
     
     <div class="max-w-7xl text-center w-full achievements-content-wrapper"> 
         
-        <div class="center-image-container my-12">
-            <img src="images/achievement_center.png" alt="Achievements Center Image" class="achievement-center-img">
+        <div class="achievements-sticky-placeholder">
+            <div class="sticky-label sticky-label-left">피드 체류시간</div>
+            <div class="sticky-label sticky-label-right">좋아요·댓글 참여도</div>
+            <div class="sticky-label sticky-label-bottom-left">시간순 알고리즘</div>
+            <div class="sticky-label sticky-label-bottom-right">시간순 알고리즘</div>
+            <div class="sticky-subtext sticky-subtext-left">
+                <span class="sticky-subtext-number">27%</span>
+                <span class="sticky-subtext-desc">증가</span>
+            </div>
+            <div class="sticky-subtext sticky-subtext-right">
+                <span class="sticky-subtext-number">40%</span>
+                <span class="sticky-subtext-desc">증가</span>
+            </div>
         </div>
         
         <div class="achievement-cards grid grid-cols-4 gap-8 w-full">
             <div class="card-item bg-white rounded-lg shadow-xl p-6 flex flex-col justify-start">
                 <div class="card-content">
-                    <p class="card-main-text text-3xl font-bold mb-2">SNS 중독</p>
+                    <p class="card-main-text text-3xl font-bold mb-2">조울증</p>
                     <p class="card-sub-text mt-auto text-lg">
-                        <span class="pretendard-text">지난해에 비해 </span><span class="konemono-text">34%</span> <span class="pretendard-text">상승했습니다.</span>
+                        <span class="pretendard-text">2010년 이후 </span><span class="konemono-text">57%</span> <span class="pretendard-text"><br>상승했습니다.</span>
                     </p>
                 </div>
             </div>
@@ -133,7 +144,7 @@
                 <div class="card-content">
                     <p class="card-main-text text-3xl font-bold mb-2">우울증</p>
                     <p class="card-sub-text mt-auto text-lg">
-                        <span class="pretendard-text">지난해에 비해 </span><span class="konemono-text">28%</span> <span class="pretendard-text">상승했습니다.</span>
+                        <span class="pretendard-text">2010년 이후 </span><span class="konemono-text">106%</span> <span class="pretendard-text"><br>상승했습니다.</span>
                     </p>
                 </div>
             </div>
@@ -141,15 +152,15 @@
                 <div class="card-content">
                     <p class="card-main-text text-3xl font-bold mb-2">불안</p>
                     <p class="card-sub-text mt-auto text-lg">
-                        <span class="pretendard-text">지난해에 비해 </span><span class="konemono-text">22%</span> <span class="pretendard-text">상승했습니다.</span>
+                        <span class="pretendard-text">2010년 이후 </span><span class="konemono-text">134%</span> <span class="pretendard-text"><br>상승했습니다.</span>
                     </p>
                 </div>
             </div>
             <div class="card-item bg-white rounded-lg shadow-xl p-6 flex flex-col justify-start">
                 <div class="card-content">
-                    <p class="card-main-text text-3xl font-bold mb-2">자살률</p>
+                    <p class="card-main-text text-3xl font-bold mb-2">약물 남용</p>
                     <p class="card-sub-text mt-auto text-lg">
-                        <span class="pretendard-text">지난해에 비해 </span><span class="konemono-text">16%</span> <span class="pretendard-text">상승했습니다.</span>
+                        <span class="pretendard-text">2010년 이후 </span><span class="konemono-text">33%</span> <span class="pretendard-text"><br>상승했습니다.</span>
                     </p>
                 </div>
             </div>
@@ -159,48 +170,17 @@
 </section>
         
         <section id="section-reason" class="snap-section web-content p-16 flex flex-col justify-center items-center">
-            <div class="max-w-7xl text-center w-full">
-                <h2 class="text-5xl font-extrabold mb-4 body-title pretendard-text">어째서, PTA일까?</h2>
-                <p class="text-xl mb-12 pretendard-text">
-                    PTA & Co.는 SNS에 취약한 청소년들을 집중 대상으로 추천 알고리즘을 연구합니다.
-                </p>
-                
-                <div class="carousel-container">
-                    <div class="carousel-viewport">
-                        <div class="carousel-track" id="reason-carousel-track">
-                            <div class="carousel-item">
-                                <img src="images/data1.png" alt="데이터 이미지 1">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/data2.png" alt="데이터 이미지 2">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/data3.png" alt="데이터 이미지 3">
-                            </div>
-                            <div class="carousel-item">
-                                <img src="images/data4.png" alt="데이터 이미지 4">
-                            </div>
-                        </div>
-                    </div>
+            <div class="reason-content max-w-7xl w-full">
+                <div class="reason-title-box">
+                    <p class="intro-title-text">서비스 소개</p>
                 </div>
 
-                <div class="carousel-controls mt-6 flex justify-center items-center">
-                    <button id="prev-btn" class="bg-gray-700 text-white p-2 rounded-full mx-2 hover:bg-gray-600 transition">
-                        &lt; 이전
-                    </button>
-                    
-                    <button id="toggle-play-btn" class="bg-red-600 text-white p-2 rounded-full mx-4 w-24 hover:bg-red-700 transition">
-                        멈춤
-                    </button>
-
-                    <button id="next-btn" class="bg-gray-700 text-white p-2 rounded-full mx-2 hover:bg-gray-600 transition">
-                        다음 &gt;
-                    </button>
+                <div class="reason-description">
+                    <p>
+                        PTA & Co.의 post - truth algorith(PTA)은 사용자 개개인의 심층적인 신념 체계와 정서적 반응에 대한 <br>정부 수집을 기반으로, 최첨단 알고리즘 기술과 개인 맞춤 콘텐츠 구성을 결합하여 사용자의 인지 현실을<br>완벽하게 재구성하고 몰입을 극대화하는 혁신적인 솔루션입니다.<br>
+                        저희 PTA는 단순한 사용자 참여 증대를 넘어 Post-truth 시대의 디지털 경험을 선도하며, 고객사의</br>압도적인 사용자 체류시간을 획기적으로 증대시키고 있습니다.
+                    </p>
                 </div>
-
-                <div id="carousel-indicators" class="flex justify-center mt-4">
-                </div>
-
             </div>
         </section>
         

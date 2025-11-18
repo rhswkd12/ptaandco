@@ -142,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             card.style.transform = `perspective(1000px)
                 rotateY(${rotationX}deg)
                 rotateX(${-rotationY}deg) 
-                scale(1.05)`; 
+                scale(1.15)`; 
 
             card.style.filter = `brightness(${brightness(event.clientY, center.y)})`;
             card.style.boxShadow = `${-rotationX * 0.5}px ${-rotationY * 0.5}px 30px 0px rgba(0, 0, 0, 0.7)`;
