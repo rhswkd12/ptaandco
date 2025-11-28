@@ -180,7 +180,7 @@ body[data-version="interaction-on"] #section-game {
 
 /* SECTION 1: 로고 섹션 */
 #section-logo {
-    background-image: url('images/bg01.png'); 
+    background-image: url('images/bg011.png'); 
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
@@ -245,7 +245,7 @@ body[data-version="interaction-on"] #section-game {
 
 /* SECTION 2: 회사 소개 및 비전 */
 #section-intro {
-    background-image: url('images/bg02.png');
+    background-image: url('images/bg022.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
