@@ -15,11 +15,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const introSection = document.getElementById('section-intro');
     const introText = typewriterElement ? typewriterElement.getAttribute('data-text') : '';
     
+    // Mission 텍스트 관련 DOM 요소
+    const missionTextContainer = document.querySelector('.mission-text');
+    const missionTextParagraphs = missionTextContainer ? missionTextContainer.querySelectorAll('p') : [];
+    
     // *** 애니메이션 제어 플래그 ***
     let isTyping = false;
     let hasTypedIntro = false; 
     let isZoomActive = false; 
-    let hasCounted = false; 
+    let hasCounted = false;
+    let hasTypedMission = false;
+    let isTypingMission = false;
     // ************************
 
     // *** 3D 카드 및 CEO 이미지 관련 DOM 요소 ***
@@ -47,15 +53,28 @@ document.addEventListener('DOMContentLoaded', () => {
      */
     function handleSectionVisibility() {
         // 모드가 interaction-off로 고정되었으므로 별도의 모드 확인 불필요
-        const scrollTop = scrollContainer.scrollTop;
-        const viewportHeight = scrollContainer.clientHeight; 
+        const scrollTop = window.scrollY || document.documentElement.scrollTop;
+        const viewportHeight = window.innerHeight; 
         
         // 1. 스크롤 인디케이터 숨김 로직
-        const firstSectionHeight = document.getElementById('section-logo').offsetHeight;
-        if (scrollTop >= firstSectionHeight - viewportHeight * 0.5) { 
-            scrollIndicator.classList.add('hidden-scroll');
-        } else {
-            scrollIndicator.classList.remove('hidden-scroll');
+        if (scrollIndicator) {
+            const firstSectionHeight = document.getElementById('section-logo').offsetHeight;
+            if (scrollTop >= firstSectionHeight - viewportHeight * 0.5) { 
+                scrollIndicator.classList.add('hidden-scroll');
+            } else {
+                scrollIndicator.classList.remove('hidden-scroll');
+            }
+        }
+        
+        // Mission 텍스트 타이핑 효과
+        const logoSection = document.getElementById('section-logo');
+        if (logoSection && missionTextContainer && !hasTypedMission && !isTypingMission) {
+            const logoRect = logoSection.getBoundingClientRect();
+            const isLogoVisible = (logoRect.top < viewportHeight) && (logoRect.bottom > viewportHeight * 0.2);
+            
+            if (isLogoVisible) {
+                startMissionTypewriterEffect();
+            }
         }
         
         // 2. 타이핑 애니메이션 제어 로직 (한 번만 실행)
@@ -162,10 +181,13 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = toggle.closest('.service-card');
             const details = card.querySelector('.service-card-details');
             const isOpen = card.classList.toggle('open');
+
+            if (!details) return;
+
             if (isOpen) {
-                details.style.maxHeight = details.scrollHeight + 'px';
+                details.style.maxHeight = `${details.scrollHeight}px`;
             } else {
-                details.style.maxHeight = 0;
+                details.style.maxHeight = '0px';
             }
         });
     });
@@ -226,6 +248,7 @@ document.addEventListener('DOMContentLoaded', () => {
     
     // --- 타이핑 애니메이션 로직 ---
     let typingTimeout;
+    let missionTypingTimeout;
 
     function startTypewriterEffect() {
         if (!typewriterElement || isTyping || hasTypedIntro) return;
@@ -255,6 +278,56 @@ document.addEventListener('DOMContentLoaded', () => {
         type();
     }
     
+    // --- Mission 텍스트 타이핑 애니메이션 로직 ---
+    function startMissionTypewriterEffect() {
+        if (!missionTextContainer || isTypingMission || hasTypedMission || missionTextParagraphs.length === 0) return;
+        
+        isTypingMission = true;
+        hasTypedMission = true;
+        
+        // 각 p 태그의 원본 텍스트 저장
+        const originalTexts = Array.from(missionTextParagraphs).map(p => p.textContent.trim());
+        
+        // 모든 p 태그 비우기
+        missionTextParagraphs.forEach(p => {
+            p.textContent = '';
+        });
+        
+        let currentParagraphIndex = 0;
+        let currentCharIndex = 0;
+        
+        function typeMission() {
+            if (!isTypingMission) return;
+            
+            if (currentParagraphIndex < missionTextParagraphs.length) {
+                const currentParagraph = missionTextParagraphs[currentParagraphIndex];
+                const currentText = originalTexts[currentParagraphIndex];
+                
+                if (currentCharIndex < currentText.length) {
+                    currentParagraph.textContent += currentText.charAt(currentCharIndex);
+                    currentCharIndex++;
+                    missionTypingTimeout = setTimeout(typeMission, 50); // 50ms 간격
+                } else {
+                    // 현재 문단 완료, 다음 문단으로
+                    currentParagraphIndex++;
+                    currentCharIndex = 0;
+                    if (currentParagraphIndex < missionTextParagraphs.length) {
+                        // 다음 문단 시작 전 약간의 딜레이
+                        missionTypingTimeout = setTimeout(typeMission, 300);
+                    } else {
+                        // 모든 문단 완료
+                        isTypingMission = false;
+                    }
+                }
+            } else {
+                isTypingMission = false;
+            }
+        }
+        
+        // 약간의 딜레이 후 시작
+        missionTypingTimeout = setTimeout(typeMission, 500);
+    }
+    
     // --- 캐러셀 로직 (버튼 핸들러 함수들만 유지) ---
     function createIndicators() { /* ... 유지 ... */ }
     function moveToSlide(index) { /* ... 유지 ... */ }
@@ -267,16 +340,18 @@ document.addEventListener('DOMContentLoaded', () => {
     // *** 페이지 로드 시, 'interaction-off' 모드 활성화 로직 실행 ***
     // -----------------------------------------------------
 
-    // 1. 정보 모드 (Scroll Snap + Zoom + Typing) 활성화
-    scrollContainer.addEventListener('scroll', handleSectionVisibility);
+    // 1. 정보 모드 (Scroll + Zoom + Typing) 활성화
+    window.addEventListener('scroll', handleSectionVisibility, { passive: true });
     
     // 포스터 줌 활성화
-    posterGroup.addEventListener('mouseenter', enableZoomStart);
-    posterGroup.addEventListener('mouseleave', disableZoom);
+    if (posterGroup) {
+        posterGroup.addEventListener('mouseenter', enableZoomStart);
+        posterGroup.addEventListener('mouseleave', disableZoom);
+    }
     
     // 초기 상태 설정 및 스크롤 이벤트 트리거
     handleSectionVisibility(); 
-    scrollContainer.style.overflowY = 'scroll'; 
+    scrollContainer.style.overflowY = 'visible'; 
     
     // 캐러셀 활성화
     attachCarouselEvents(); 
