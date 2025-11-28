@@ -1,0 +1,895 @@
+/* 기본 스타일 (body의 data-version에 따라 전체 스타일이 변경됨) */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap');
+/* Google Fonts에서 Kode Mono 폰트의 CSS 정의를 가져옵니다. */
+@import url('https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap');
+
+
+/* 한글 폰트 정의: FounderYooGeonWook (로고 부제 등에 사용) */
+/* 폰트 */
+@font-face {
+    font-family: 'FounderYooGeonWook';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2112@1.0/establishRetrosansOTF.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'SMDinaruStd';
+    src: url('fonts/SMDinaruStd-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* 추가된 폰트 정의: Pretendard (업적 섹션 등에만 적용) */
+@font-face {
+    font-family: 'Pretendard';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/pretendard@1.0/Pretendard-Medium.woff2') format('woff2');
+    font-weight: 500;
+    font-display: swap;
+}
+
+/* Konemono 폰트 정의 (숫자/영문용) */
+@font-face {
+    font-family: 'Konemono';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2205@1.0/Konemono.woff2') format('woff2');
+    font-weight: normal;
+    font-display: swap;
+}
+
+/* NeoDonggeunmo 폰트 정의 (section-intro 타이핑 텍스트에 사용) */
+@font-face {
+    font-family: 'NeoDonggeunmo';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.3/NeoDunggeunmo.woff') format('woff');
+    font-weight: normal;
+    font-display: swap;
+}
+
+body {
+    /* 기본 폰트: Inter (영문) + 시스템 기본 한글 폰트 */
+    font-family: 'Inter', sans-serif; 
+    transition: background-color 0.5s ease, color 0.5s ease;
+    overflow-x: hidden; 
+}
+
+/* ------------------------------------- */
+/* 토글 스위치 스타일링 (이전과 동일) */
+/* ------------------------------------- */
+.toggle-switch {
+    position: relative;
+    display: inline-block;
+    width: 300px;
+    height: 48px;
+    cursor: pointer;
+    border-radius: 9999px;
+    background-color: #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-switch input { opacity: 0; width: 0; height: 0; }
+.slider {
+    position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+    border-radius: 9999px; transition: 0.4s; display: flex;
+    align-items: center; padding: 4px;
+}
+.slider::before {
+    position: absolute; content: ""; height: 40px; width: 50%; left: 4px; bottom: 4px;
+    background-color: #ffffff; border-radius: 9999px; transition: 0.4s;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); z-index: 1;
+}
+.toggle-text { display: flex; width: 100%; height: 100%; z-index: 2; position: relative; }
+.toggle-option {
+    flex: 1; display: flex; justify-content: center; align-items: center;
+    font-weight: 600; font-size: 16px; transition: color 0.4s;
+}
+
+/* OFF (웹/정보) 상태 스타일: checked 상태일 때 */
+#version-toggle:checked + .slider::before { transform: translateX(0); }
+#version-toggle:checked + .slider .web-label { color: #007bff; }
+#version-toggle:checked + .slider .kiosk-label { color: #4b5563; }
+
+/* ON (게임/인터랙션) 상태 스타일: unchecked 상태일 때 */
+#version-toggle:not(:checked) + .slider::before { transform: translateX(100%); }
+#version-toggle:not(:checked) + .slider .web-label { color: #4b5563; }
+#version-toggle:not(:checked) + .slider .kiosk-label { color: #007bff; }
+
+
+/* ------------------------------------- */
+/* OFF 상태 (Scroll Snapping / 웹 정보 뷰) */
+/* ------------------------------------- */
+
+/* 1. <nav> 컨테이너를 상대 위치 기준으로 설정 */
+#main-header nav {
+    position: relative;
+    /* max-w-screen-xl이 px-8 내부에서 중앙에 배치되도록 합니다. */
+}
+
+/* 2. 내비게이션 링크를 절대 위치로 중앙 정렬 */
+#main-header #nav-links {
+    /* Absolute Positioning을 사용하여 Flexbox의 영향을 무시 */
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%); /* X축 기준 정확히 50% 이동 */
+    /* z-index를 높게 설정하여 토글 영역 위에 겹쳐도 보이도록 보장 */
+    z-index: 20; 
+    gap: 4rem;
+}
+
+#main-header #nav-links a {
+    white-space: nowrap; /* 텍스트가 절대 줄바꿈되지 않도록 강제 */
+    font-size: 0.95rem; /* 글자 크기를 약간 줄여 수평 공간 확보 */
+    padding: 0 0.2rem; /* 좌우 패딩을 미세하게 조정하여 공간 확보 */
+}
+
+body[data-version="interaction-off"] {
+    background-color: #f3f4f6;
+}
+
+body[data-version="interaction-off"] .content-container {
+    width: 100%;
+    min-height: 100vh;
+    margin: 0;
+    padding: 0;
+    overflow-y: visible;
+    scroll-behavior: smooth; /* 부드러운 스크롤 복구 */
+    -webkit-overflow-scrolling: touch; /* 부드러움 최적화 */
+}
+
+.snap-section {
+    width: 100%;
+    min-height: 100vh; 
+    height: auto;
+    padding-top: 68px; 
+    position: relative; 
+    scroll-snap-align: none;
+}
+
+/* 인터랙션 ON 상태에서는 모든 웹 콘텐츠 섹션 숨김 */
+body[data-version="interaction-on"] .web-content {
+    display: none !important;
+}
+
+/* ------------------------------------- */
+/* ON 상태 (게임 시작 뷰) */
+/* ------------------------------------- */
+
+body[data-version="interaction-on"] {
+    background-color: #01001C;
+}
+
+body[data-version="interaction-on"] .content-container {
+    width: 100vw;
+    height: 100vh;
+    overflow-y: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 0;
+}
+
+body[data-version="interaction-on"] #section-game {
+    display: flex !important;
+    width: 100vw;
+    height: 100vh;
+    padding-top: 0;
+}
+
+
+/* ------------------------------------- */
+/* 섹션 폰트 및 레이아웃 (공통) */
+/* ------------------------------------- */
+
+/* SECTION 1: 로고 섹션 */
+#section-logo {
+    background-image: url('images/bg011.png'); 
+    background-size: cover; 
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #01001C; 
+    
+    position: relative; 
+    overflow: hidden; 
+    width: 1920px;
+    height: 1786px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding-top: 160px;
+}
+
+/* #section-logo 내부 콘텐츠 래퍼 */
+#section-logo > div.text-center.w-full.max-w-7xl {
+    margin-top: -10vh; 
+    position: relative;
+    z-index: 1;
+}
+
+#section-logo .logo-group {
+    margin-top: 5rem; 
+    margin-bottom: 2rem; 
+    z-index: 1; 
+    position: relative; 
+}
+
+#section-logo .logo-english {
+    font-family: 'FounderYooGeonWook';
+    font-size: 94px;
+    font-weight: lighter;
+    letter-spacing: 0.5rem; 
+    margin-bottom: 0.5rem;
+    white-space: nowrap; 
+    display: block; 
+    color: #3a3a3a;
+    line-height: 1.4;
+}
+
+
+/* 미션 텍스트 스타일 */
+#section-logo .mission-text {
+    width: 100%;
+    max-width: 1200px;
+    font-size: 20px;
+    margin: 0 auto; 
+    margin-top: 100px;
+    z-index: 1; 
+    position: relative; 
+    font-family: 'SMDinaruStd', sans-serif;
+    color: #3a3a3a;
+}
+
+#section-logo .mission-text p {
+    line-height: 1.3;
+    margin-bottom: 0.75rem;
+}
+
+/* SECTION 2: 회사 소개 및 비전 */
+#section-intro {
+    background-image: url('images/bg022.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    z-index: 1; 
+    color: white; 
+    width: 1920px;
+    height: 785px;
+    max-width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 220px 64px;
+}
+
+#section-intro::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 0;
+}
+
+#section-intro > * {
+    position: relative;
+    z-index: 1;
+}
+
+
+/* 핵심 가치 카드 컨테이너 및 타이틀 조정 */
+.intro-value-cards {
+    position: relative;
+    z-index: 3;
+    color: #FFFFFF; 
+    text-align: center; 
+    top: 100px;
+}
+
+/* 4개 항목을 가로로 배치 (HTML에서 grid-cols-4로 변경되었다고 가정) */
+.intro-value-cards .grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)); /* 4개 열로 강제 */
+    gap: 3rem; /* 카드 사이 간격을 줄여서 가로 배치 용이하게 */
+    justify-content: center;
+}
+
+/* 개별 핵심 가치 제목 스타일 */
+.intro-value-cards h3 {
+    position: relative; 
+    margin-top: 50px; /* 구분선 위 공간 확보 */
+    margin-bottom: 50px;
+    font-size: 36px;
+    font-family: 'FounderYooGeonWook';
+    font-weight: lighter;
+}
+
+/* 각 제목 사이에 원형 구분자 추가 (1, 2, 3번째 카드 - 이윤 추구, 조작, 중독) */
+.intro-value-cards .value-card:nth-child(-n+3) h3::after {
+    content: "";
+    position: absolute;
+    right: -50px;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    background-color: #FFFFFF;
+    border-radius: 50%;
+}
+
+/* 부연 설명 텍스트 */
+.intro-value-cards p {
+    font-family: 'SMDinaruStd';
+    line-height: 37px;
+    /* 폰트 크기가 작아지면 잘릴 수 있으므로, 크기를 1rem으로 설정 */
+    font-size: 16px;
+}
+
+/* 기업 소개 타이틀 텍스트 (상자 제거) */
+#section-intro .intro-title-inline {
+    align-self: center;
+    margin-bottom: 40px;
+    margin-top: 0;
+}
+
+.intro-title-text {
+    font-size: 36px;
+    font-family: 'FounderYooGeonWook', sans-serif;
+    color: #FFFFFF; 
+    font-weight: lighter;
+    text-shadow: 0px 4px 16px #C8C6FF;
+    text-align: center;
+    display: block;
+    width: 100%;
+}
+
+
+/* SECTION 3: 주요 업적 및 성과 */
+#section-achievements {
+    background-image: url('images/bg03.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-color: #01001C;
+    color: #FFFFFF; 
+    font-family: 'Pretendard', sans-serif; 
+    text-align: center; 
+}
+
+.achievements-title-inline {
+    align-self: flex-start;
+    font-size: 36px;
+    margin-left: 242px;
+    font-family: 'FounderYooGeonWook';
+    position: relative;
+    z-index: 6;
+    top: 175px;
+}
+
+/* 기존 콘텐츠 래퍼의 위치 조정: 타이틀 박스 아래에 오도록 마진을 조정 */
+#section-achievements .achievements-content-wrapper {
+    /* *** 수정: 마진을 줄여서 콘텐츠를 위로 당김 *** */
+    margin-top: 5rem; /* 10rem에서 5rem으로 축소 */
+    padding-top: 24rem; /* 고정된 스티키 박스 영역만큼 여백 추가 */
+    padding-bottom: 4rem;
+    position: relative;
+}
+
+/* 업적 섹션 스티키 플레이스홀더 */
+.achievements-sticky-placeholder {
+    width: 500px;
+    height: 300px;
+    border-radius: 24px;
+    position: relative;
+    margin: 0 auto 3rem auto;
+    z-index: 5;
+    background-color: rgba(230, 222, 245, 0.9);
+    border: 1px solid rgba(230, 222, 245, 0.6);
+    backdrop-filter: blur(8px);
+    background-image: url('images/obj06.png');
+    background-size: 120% auto;
+    background-repeat: no-repeat;
+    background-position: calc(50% - 10px) calc(40% - 40px);
+    pointer-events: none;
+    font-family: 'NeoDonggeunmo';
+    color: #322749;
+}
+
+.achievements-sticky-placeholder .sticky-label {
+    position: absolute;
+    top: 30px;
+    font-size: 18px;
+    letter-spacing: 0.05em;
+    line-height: 1.1;
+}
+
+.achievements-sticky-placeholder .sticky-label-left {
+    left: 45px;
+    text-align: left;
+}
+
+.achievements-sticky-placeholder .sticky-label-right {
+    right: 25px;
+    text-align: right;
+}
+
+.achievements-sticky-placeholder .sticky-label-bottom-left,
+.achievements-sticky-placeholder .sticky-label-bottom-right {
+    position: absolute;
+    bottom: 30px;
+    font-size: 16px;
+    letter-spacing: 0.05em;
+}
+
+.achievements-sticky-placeholder .sticky-label-bottom-left {
+    top: 220px;
+    left: 45px;
+}
+
+.achievements-sticky-placeholder .sticky-label-bottom-right {
+    top: 220px;
+    right: 40px;
+    text-align: right;
+}
+
+.achievements-sticky-placeholder .sticky-subtext {
+    position: absolute;
+    font-family: 'NeoDonggeunmo';
+    letter-spacing: 0.05em;
+    display: flex;
+    align-items: baseline;
+    gap: 8px;
+}
+
+.achievements-sticky-placeholder .sticky-subtext-left {
+    top: 240px;
+    left: 60px;
+}
+
+.achievements-sticky-placeholder .sticky-subtext-right {
+    top: 240px;
+    right: 50px;
+    justify-content: flex-end;
+}
+
+.achievements-sticky-placeholder .sticky-subtext-number {
+    font-size: 36px;
+    font-weight: 700;
+}
+
+.achievements-sticky-placeholder .sticky-subtext-desc {
+    font-size: 18px;
+}
+
+/* 카드 스타일 */
+#section-achievements .achievement-cards {
+    max-width: 1200px; 
+    margin-top: 3rem; /* 카드 섹션을 위로 이동 */
+    gap: 4rem; 
+}
+
+#section-achievements .card-item {
+    min-height: 330px; /* 최소 높이를 설정하여 너무 작아지는 것은 방지 */
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end; 
+    text-align: left; 
+    margin-top: 3rem;
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative; 
+    overflow: hidden;
+    padding: 1.5rem;
+    
+    /* 3D 효과 CSS 적용 */
+    transition: transform 0.3s ease-out, filter 0.3s ease-out, box-shadow 0.3s ease-out;
+    transform: perspective(1000px); 
+    filter: brightness(1);
+    box-shadow: 0 0 0 0 rgba(48, 65, 0, 0.5); 
+}
+
+/* 카드별 배경 이미지 */
+.achievement-cards > div:nth-child(1) { background-image: url('images/obj2.png'); }
+.achievement-cards > div:nth-child(2) { background-image: url('images/obj3.png'); }
+.achievement-cards > div:nth-child(3) { background-image: url('images/obj4.png'); }
+.achievement-cards > div:nth-child(4) { background-image: url('images/obj5.png'); }
+
+/* 카드 디밍 효과 */
+/* #section-achievements .card-item::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3); 
+    z-index: 1;
+} */
+
+/* 카드 내부 콘텐츠 및 텍스트 스타일 */
+#section-achievements .card-content {
+    position: relative;
+    z-index: 2; 
+    color: white; 
+    text-align: left; 
+    padding-bottom: 0;
+}
+
+#section-achievements .card-main-text{
+    color: #FFFFFF; 
+    font-family: 'FounderYooGeonWook';
+    font-size: 24px;
+}
+
+#section-achievements .card-sub-text {
+    color: #FFFFFF; 
+    font-size: 20px;
+    font-family: 'NeoDonggeunmo'; 
+}
+
+/* 카드 내 영문/숫자 텍스트 (Konemono 적용) */
+#section-achievements .konemono-text {
+    font-family: 'NeoDonggeunmo';
+    font-weight: 700;
+    color: #74A3FF; /* 빨간색 적용 */
+}
+
+/* SECTION 4: 서비스 소개 (#section-reason) */
+#section-reason {
+    background-image: url('images/bg04.png'); 
+    color: #FFFFFF;
+    font-family: 'Pretendard', sans-serif;
+}
+
+#section-reason .reason-content {
+    position: relative;
+    width: 100%;
+    margin-top: 4rem;
+}
+
+.reason-title-inline {
+    margin-left: 90px;
+    margin-top: 0rem;
+    margin-bottom: 50px;
+    font-family: 'FounderYooGeonWook';
+    font-size: 36px;
+}
+
+.reason-description {
+    margin-left: 90px;
+    margin-top: 120px;
+    margin-bottom: 100px;
+    max-width: 1000px;
+    text-align: left;
+    font-family: 'NeoDonggeunmo';
+    font-size: 20px;
+    line-height: 1.8;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+/* SECTION 4-1: 서비스 쇼케이스 */
+#section-service-showcase {
+    background-image: url('images/bg06.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    font-family: 'Pretendard', sans-serif;
+    position: relative;
+    margin-bottom: 0;
+}
+
+.service-showcase-content {
+    width: 100%;
+    position: relative;
+    top: 0px;
+}
+
+.service-card-grid {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 100%;
+}
+
+.service-card {
+    width: 320px;
+    min-height: 400px;
+    height: auto;
+    border-radius: 23px;
+    background-color: #E6DEF5;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 60px rgba(0, 0, 0, 0.35);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(6px);
+    flex-direction: column;
+    padding: 1.5rem 1rem;
+}
+
+.service-card img {
+    width: 70%;
+    height: auto;
+    object-fit: contain;
+    filter: drop-shadow(0 15px 40px rgba(0,0,0,0.45));
+}
+
+.service-card-toggle {
+    width: 100%;
+    margin-top: 40px;
+    background: none;
+    border: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 12px;
+    color: #2B2A75;
+    font-family: 'FounderYooGeonWook';
+    font-size: 20px;
+    cursor: pointer;
+    padding: 0;
+}
+
+.service-card-toggle-arrow {
+    transition: transform 0.3s ease;
+    font-family: 'Pretendard', sans-serif;
+}
+
+.service-card-details {
+    width: 100%;
+    max-height: 0;
+    margin-top: 0;
+    overflow: hidden;
+    opacity: 0;
+    transition: max-height 0.4s ease, opacity 0.3s ease;
+    color: #2B2A75;
+    font-family: 'NeoDonggeunmo';
+    font-size: 16px;
+    line-height: 1.5;
+}
+
+.service-card-details p {
+    margin-top: 0.5rem;
+}
+
+.service-card.open .service-card-details {
+    margin-top: 24px;
+    opacity: 1;
+}
+
+.service-card.open .service-card-toggle-arrow {
+    transform: rotate(180deg);
+}
+
+
+/* SECTION 4-3: 주요 관찰 대상 */
+#section-service-subject {
+    background-image: url('images/bg07.png');
+    background-size: cover;
+    background-position: center top;
+    background-repeat: no-repeat;
+    color: #FFFFFF;
+    font-family: 'Pretendard', sans-serif;
+    position: relative;
+    margin-top: 0; /* 섹션 간 간격 제거 */
+}
+
+.service-subject-content {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.service-subject-title {
+    margin-bottom: 2rem;
+    margin-left: -1080px;
+    font-size: 36px;
+    color: #1B1863; 
+    font-family: 'FounderYooGeonWook';
+}
+
+.service-subject-glass-card {
+    width: 1280px;
+    height: 646px;
+    border-radius: 32px;
+    background-color: rgba(225, 218, 253, 0.55);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    box-shadow: 0 25px 55px rgba(0, 0, 0, 0.55);
+    backdrop-filter: blur(10px);
+    position: relative;
+    padding-top: 140px;
+    display: flex;
+    justify-content: center;
+}
+
+.service-subject-glass-badge {
+    position: absolute;
+    top: 48px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 367px;
+    height: 45px;
+    background-color: #2E3AF0;
+    border-radius: 9px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-family: 'FounderYooGeonWook';
+    font-size: 24px;
+    color: #FFFFFF;
+    letter-spacing: 0.05em;
+}
+
+.service-subject-groups {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    align-items: flex-start;
+    width: 100%;
+    padding-left: 80px;
+}
+
+.service-subject-group {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+    text-align: left;
+}
+
+.service-subject-head {
+    display: flex;
+    align-items: baseline;
+    gap: 1rem;
+}
+
+.service-subject-label {
+    font-family: 'NeoDonggeunmo';
+    font-size: 20px;
+    color: var(--subject-label-color, #FFFFFF);
+    display: inline-block;
+}
+
+.service-subject-count {
+    font-family: 'NeoDonggeunmo';
+    font-size: 20px;
+    color: var(--subject-label-color, #FFFFFF);
+}
+
+.service-subject-label[data-color="#1B1862"] { color: #1B1862; }
+.service-subject-label[data-color="#2E3AF0"] { color: #2E3AF0; }
+.service-subject-label[data-color="#3094FF"] { color: #3094FF; }
+.service-subject-count[data-color="#1B1862"] { color: #1B1862; }
+.service-subject-count[data-color="#2E3AF0"] { color: #2E3AF0; }
+.service-subject-count[data-color="#3094FF"] { color: #3094FF; }
+
+.service-subject-group img {
+    width: auto;
+    height: auto;
+    max-height: 260px;
+    object-fit: contain;
+}
+
+/* SECTION 5: CEO 소개 (#section-chairman) */
+#section-chairman {
+    background-color: #01001C; 
+    color: #FFFFFF;
+    font-family: 'Pretendard', sans-serif;
+}
+
+#section-chairman h2 {
+    color: #FFFFFF;
+    font-size: 2.5rem;
+    margin-top: 0; 
+    margin-bottom: 2rem; 
+}
+
+#section-chairman h3 {
+    width: 600px;
+}
+
+#section-chairman .chairman-content {
+    align-items: center;
+    margin-top: 3rem; 
+    width: 1000px;
+}
+
+#section-chairman .chairman-photo img {
+    width: 400px;
+    height: 500px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+    transition: .2s;
+    transform: perspective(1000px); 
+    filter: brightness(1);
+}
+
+/* SECTION 6: 부서 소개 */
+#section-dept {
+    background-color: #01001C; 
+    color: #FFFFFF;
+    font-family: 'Pretendard', sans-serif;
+}
+
+#section-dept h2 {
+    color: #FFFFFF;
+    font-size: 2.5rem;
+    margin-top: 0; 
+    margin-bottom: 3rem;
+}
+
+/* 부서 카드 스타일 */
+.dept-card {
+    background-color: #383750; 
+    color: #FFFFFF;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); 
+    overflow: hidden; 
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out;
+    padding: 0; 
+}
+
+.dept-card img {
+    height: 12rem; 
+    object-fit: contain; 
+    margin-bottom: 0.75rem;
+}
+
+.dept-card p {
+    color: #FFFFFF; 
+    font-family: 'Pretendard', sans-serif;
+    font-weight: bold;
+    font-size: 1.25rem; 
+    padding: 0 1rem 1rem 1rem; 
+    margin-top: 0;
+    margin-bottom: 3rem;
+}
+
+/* SECTION 7: 핵심 인포그래픽 포스터 */
+#poster-area {
+    background-color: #01001C; 
+}
+
+/* 포스터 그룹 */
+#poster-group {
+    width: 592px; 
+    height: 888px; 
+    max-width: none; 
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1); 
+    border-radius: 8px; 
+    overflow: hidden;
+}
+
+/* 포스터 이미지 */
+#poster-img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; 
+    transition: transform 0.2s ease-out; 
+    transform-origin: center center;
+}
+
+/* 스크롤 인디케이터 (JS로 숨김 처리) */
+body[data-version="interaction-off"] #scroll-indicator {
+    position: absolute; 
+    bottom: -10vh;
+    left: 50%;
+    transform: translateX(-50%);
+    opacity: 1;
+    transition: opacity 0.3s ease-out;
+    z-index: 2;
+    margin-top: 0 !important; 
+}
+
+body[data-version="interaction-off"] #scroll-indicator.hidden-scroll {
+    opacity: 0;
+    pointer-events: none;
+}
