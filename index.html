@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Post-Truth Algorithm & Co.</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kode+Mono:wght@400..700&display=swap" rel="stylesheet">
+    
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+</head>
+<body data-version="interaction-off" class="transition-colors duration-500">
+    <header id="main-header" class="fixed top-0 left-0 w-full z-50 transition-colors duration-500 bg-white shadow-lg">
+        <nav class="flex justify-between items-center h-[68px] px-8 max-w-screen-xl mx-auto"> 
+            
+            <a href="#section-logo" class="flex items-center">
+                <img src="images/logo.png" alt="PTA & Co. Logo" class="h-8"> 
+            </a>
+
+            <div id="nav-links" class="flex space-x-8 text-sm font-medium">
+                <a href="#section-intro" class="nav-link data-color-target hover:text-blue-500 transition duration-300">핵심 가치</a>
+                <a href="#section-achievements" class="nav-link data-color-target hover:text-blue-500 transition duration-300">PTA&Co.의 업적</a>
+                <a href="#section-service-showcase" class="nav-link data-color-target hover:text-blue-500 transition duration-300">서비스</a>
+                <a href="#section-service-subject" class="nav-link data-color-target hover:text-blue-500 transition duration-300">핵심 고객</a>
+                <a href="#section-chairman" class="nav-link data-color-target hover:text-blue-500 transition duration-300">CEO</a>
+                <a href="#section-dept" class="nav-link data-color-target hover:text-blue-500 transition duration-300">부서 소개</a>
+                <a href="#poster-area" class="nav-link data-color-target hover:text-blue-500 transition duration-300">인포그래픽</a>
+            </div>
+            
+            <button id="experience-btn" class="nav-experience-btn">PTA & Co. 체험하기</button>
+        </nav>
+    </header>
+
+    <main id="infographic-content" class="content-container">
+        
+        <section id="section-logo" class="snap-section web-content bg-gray-900 text-white flex flex-col justify-center items-center">
+            
+            <div class="text-center w-full max-w-7xl">
+                
+                
+                <div class="logo-group">
+                    <p class="logo-english text-6xl">POST-TRUTH<br>ALGORITHM & Co.</p>
+                </div>
+
+                <div class="mission-text">
+                    <p class="text-xl leading-relaxed mb-4">
+                        저희는 기업 이익을 최우선으로 추구하며, 고객님의 소중한 개인 정보를 알고리즘의 핵심 동력으로 삼습니다.
+                    </p>
+                    <p class="text-xl leading-relaxed mb-4">
+                        저희는 알고리즘이 선사하는 최적의 몰입과 최대 효율만을 보장합니다.
+                    </p>
+                    <p class="text-xl leading-relaxed">
+                        누구도 벗어날 수 없는 흥미로운 피드로, 여러분은 계속 저희를 선택하게 될 것입니다.
+                    </p>
+                </div>
+                
+
+            </div>
+        </section>
+
+        <section id="section-intro" class="snap-section web-content section-intro-style text-white flex flex-col justify-end items-center p-16">
+    <p class="intro-title-text intro-title-inline">PTA & Co.의 핵심 가치</p>
+    
+    <div class="intro-value-cards max-w-7xl text-center mb-16">
+        <div class="grid grid-cols-2 gap-x-16 gap-y-12">
+            
+            <div class="value-card text-center p-4">
+                <h3 class="text-3xl font-extrabold mb-3">이윤 추구</h3>
+                <p class="text-lg pretendard-text">
+                    PTA & Co는 모든 가치보다<br>경제적 이익을 최우선합니다.
+                </p>
+            </div>
+
+            <div class="value-card text-center p-4">
+                <h3 class="text-3xl font-extrabold mb-3">조작</h3>
+                <p class="text-lg pretendard-text">
+                    사용자 데이터를 기반으로<br>행동과 심리를 예측하고,<br>원하는 방향으로 조작합니다.
+                </p>
+            </div>
+
+            <div class="value-card text-center p-4">
+                <h3 class="text-3xl font-extrabold mb-3">중독</h3>
+                <p class="text-lg pretendard-text">
+                    사용자가 떠나지 않도록<br>자극적 콘텐츠를 제공해<br>플랫폼에 머물게 합니다.
+                </p>
+            </div>
+
+            <div class="value-card text-center p-4">
+                <h3 class="text-3xl font-extrabold mb-3">책임 회피</h3>
+                <p class="text-lg pretendard-text">
+                    개인정보 유출이나 심리·사회적<br>부작용에 대한 책임을<br>모두 사용자에게 전가합니다.
+                </p>
+            </div>
+            
+        </div>
+    </div>
+        </section>
+        
+        <section id="section-achievements" class="snap-section web-content p-16 flex flex-col justify-center items-center">
+    
+    <p class="intro-title-text achievements-title-inline">PTA & Co.의 업적</p>
+    
+    <div class="max-w-7xl text-center w-full achievements-content-wrapper"> 
+        
+        <p class="achievements-description-text">개인화 알고리즘은 사용자 체류시간과 참여도를 증가시켰습니다</p>
+        
+        <div class="achievements-sticky-placeholder-wrapper">
+        <div class="achievements-sticky-placeholder">
+            <p class="sticky-placeholder-title">콘텐츠 노출 방식에 따른 차이</p>
+            <div class="sticky-label sticky-label-left">피드 체류시간</div>
+            <div class="sticky-label sticky-label-right">좋아요·댓글 참여도</div>
+            <div class="sticky-label sticky-label-bottom-left">최신순 &nbsp;알고리즘</div>
+            <div class="sticky-label sticky-label-bottom-right">최신순 &nbsp;알고리즘</div>
+            <div class="sticky-subtext sticky-subtext-left">
+                <span class="sticky-subtext-number counting" data-count="27">0%</span>
+                <span class="sticky-subtext-desc">증가</span>
+            </div>
+            <div class="sticky-subtext sticky-subtext-right">
+                <span class="sticky-subtext-number counting" data-count="40">0%</span>
+                <span class="sticky-subtext-desc">증가</span>
+            </div>
+            <p class="sticky-placeholder-source">출처 : 2020년 미국 대선 소셜미디어 영향 연구</p>
+        </div>
+        <img src="images/line02.png" alt="구분선" class="sticky-placeholder-line">
+        <p class="sticky-placeholder-result">RESULT</p>
+        </div>
+        
+        <div class="achievement-cards grid grid-cols-4 gap-8 w-full">
+            <div class="card-item bg-white rounded-lg shadow-xl p-6 flex flex-col justify-start">
+                <div class="card-content">
+                    <p class="card-main-text text-3xl font-bold mb-2">조울증</p>
+                    <p class="card-sub-text mt-auto text-lg">
+                        <span class="pretendard-text">2010년 이후</span><br><span class="konemono-text">57%</span> <span class="pretendard-text">상승했습니다</span>
+                    </p>
+                </div>
+            </div>
+            <div class="card-item bg-white rounded-lg shadow-xl p-6 flex flex-col justify-start">
+                <div class="card-content">
+                    <p class="card-main-text text-3xl font-bold mb-2">우울증</p>
+                    <p class="card-sub-text mt-auto text-lg">
+                        <span class="pretendard-text">2010년 이후</span><br><span class="konemono-text">106%</span> <span class="pretendard-text">상승했습니다</span>
+                    </p>
+                </div>
+            </div>
+            <div class="card-item bg-white rounded-lg shadow-xl p-6 flex flex-col justify-start">
+                <div class="card-content">
+                    <p class="card-main-text text-3xl font-bold mb-2">불안</p>
+                    <p class="card-sub-text mt-auto text-lg">
+                        <span class="pretendard-text">2010년 이후</span><br><span class="konemono-text">134%</span> <span class="pretendard-text">상승했습니다</span>
+                    </p>
+                </div>
+            </div>
+            <div class="card-item bg-white rounded-lg shadow-xl p-6 flex flex-col justify-start">
+                <div class="card-content">
+                    <p class="card-main-text text-3xl font-bold mb-2">약물 남용</p>
+                    <p class="card-sub-text mt-auto text-lg">
+                        <span class="pretendard-text">2010년 이후</span><br><span class="konemono-text">33%</span> <span class="pretendard-text">상승했습니다</span>
+                    </p>
+                </div>
+            </div>
+            
+        </div>
+    </div>
+</section>
+        
+        <section id="section-service-showcase" class="snap-section web-content p-16 flex flex-col justify-center items-center">
+            <div class="reason-content max-w-7xl w-full mb-12">
+                <p class="intro-title-text reason-title-inline">서비스 소개</p>
+
+                <div class="reason-description">
+                    <p>
+                        PTA & Co.의 post - truth algorithm(PTA)은 사용자 개개인의 심층적인 신념 체계와 정서적 반응에<br> 대한 정부 수집을 기반으로, 최첨단 알고리즘 기술과 개인 맞춤 콘텐츠 구성을 결합하여 사용자의 인지 현실을<br>완벽하게 재구성하고 몰입을 극대화하는 혁신적인 솔루션입니다.<br>
+                        저희 PTA는 단순한 사용자 참여 증대를 넘어 Post-truth 시대의 디지털 경험을 선도하며, 고객사의<br>압도적인 사용자 체류시간을 획기적으로 증대시키고 있습니다.
+                    </p>
+                </div>
+            </div>
+            <div class="service-showcase-content max-w-9xl w-full">
+                <div class="service-card-grid">
+                    <div class="service-card">
+                        <img src="images/serv01.png" alt="데이터 동기화">
+                        <button class="service-card-toggle" type="button">
+                            <span class="service-card-toggle-arrow">▼</span>
+                            <span class="service-card-toggle-text">감정 분석 시스템</span>
+                        </button>
+                        <div class="service-card-details">
+                            <p>
+                                사용자의 모든 개인 정보를 비밀리에<br>‘분석하는 시스템’입니다.<br><br>
+                                이 시스템을 통해 사용자의 즉각적인<br>흥미와 감정을 자극하는 콘텐츠만을<br>예측하고 선별하여 노출합니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="images/serv02.png" alt="심리 패턴 분석">
+                        <button class="service-card-toggle" type="button">
+                            <span class="service-card-toggle-arrow">▼</span>
+                            <span class="service-card-toggle-text">생각 유도화 시스템</span>
+                            
+                        </button>
+                        <div class="service-card-details">
+                            <p>
+                                사용자의 숨겨진 취향, 욕망까지 분석하여 '맞춤형 정보 환경'을 구성합니다.<br><br>
+                                사용자는 맞춤형 정보 환경 속에서<br>오직 편향된 현실만을 접하게 되어<br>잘못된 편향성을 기릅니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="images/serv03.png" alt="실시간 개입">
+                        <button class="service-card-toggle" type="button">
+                            <span class="service-card-toggle-arrow">▼</span>
+                            <span class="service-card-toggle-text">행동 유지 시스템</span>
+                            
+                        </button>
+                        <div class="service-card-details">
+                            <p>
+                                사용자의 감정, 흥미를 자극하는 알림과 콘텐츠를 최적의 시점에 끊임없이 제공하여, 사용자의 ‘행동 지속’을 유도합니다.<br><br>
+                                사용자는 플랫폼 내 스스로 벗어나기 어려운 몰입 상태에 머물게 됩니다.
+                            </p>
+                        </div>
+                    </div>
+                    <div class="service-card">
+                        <img src="images/serv04.png" alt="행동 유지">
+                        <button class="service-card-toggle" type="button">
+                            <span class="service-card-toggle-arrow">▼</span>
+                            <span class="service-card-toggle-text">충동 결제 유도 시스템</span>
+                            
+                        </button>
+                        <div class="service-card-details">
+                            <p>
+                                사용자의 행동 기록과 재정 상태 단서까지 분석하여, 광고성 메시지에 가장 효과적으로 반응할 최적의 순간을 포착합니다.<br><br>
+                                사용자는 자신도 모르게 충동적인<br>소비를 하게 됩니다.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+
+        <section id="section-service-subject" class="snap-section web-content p-16 flex flex-col justify-center items-center">
+            <div class="service-subject-content">
+                <p class="intro-title-text service-subject-title">PTA &Co.는 SNS 환경에 취약한 청소년들을 핵심 고객으로 생각합니다.</p>
+                <div class="service-subject-glass-card">
+                    <div class="service-subject-glass-badge">학생들의 온라인 정보 분별 능력</div>
+                    <div class="service-subject-groups">
+                        <div class="service-subject-group">
+                            <div class="service-subject-head">
+                                <span class="service-subject-label" data-color="#3094FF">매우 좋음</span>
+                            </div>
+                            <div class="service-subject-image-wrapper">
+                                <img src="images/group1.png" alt="수행">
+                                <span class="service-subject-count service-subject-count-right" data-color="#3094FF">3<span class="count-unit-small">명</span></span>
+                            </div>
+                        </div>
+                        <div class="service-subject-group">
+                            <div class="service-subject-head">
+                                <span class="service-subject-label" data-color="#2E3AF0">미흡</span>
+                            </div>
+                            <div class="service-subject-image-wrapper">
+                                <img src="images/group2.png" alt="미흡">
+                                <span class="service-subject-count service-subject-count-right" data-color="#2E3AF0">39<span class="count-unit-small">명</span></span>
+                            </div>
+                        </div>
+                        <div class="service-subject-group">
+                            <div class="service-subject-head">
+                                <span class="service-subject-label" data-color="#1B1862">좋지 않음</span>
+                            </div>
+                            <div class="service-subject-image-wrapper service-subject-image-wrapper-inner">
+                                <img src="images/group3.png" alt="실패">
+                                <span class="service-subject-count service-subject-count-inner" data-color="#1B1862">58<span class="count-unit-large">명</span></span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="service-subject-glass-card-footer">
+                        <p class="service-subject-evaluation-text">온라인 정보를 비판적으로 평가하는 능력 정도<br>매우 좋음 = 2점&nbsp;&nbsp; 미흡 = 1점 &nbsp;&nbsp;좋지 않음 = 0점</p>
+                        <p class="service-subject-source-text">출처 : 학생들의 시민 온라인 추론:국가적 초상화, Stanford Digital Repository</p>
+                    </div>
+                </div>
+                <div class="service-subject-insight-section">
+                    <p class="service-subject-insight-title">Insight</p>
+                    <img src="images/line01.png" alt="구분선" class="service-subject-insight-line">
+                    <p class="service-subject-insight-text">많은 학생이 단편적인 정보에 현혹되거나, 출처 조사 없이 표면적인 요소만 보고 판단하는 경향이 있어,<br>
+                                                               온라인 정보 분별 능력이 전반적으로 부족하다 는 점이 드러났습니다.<br>
+                                                              이러한 취약점은 알고리즘이 제공하는 정보들을 <span class="insight-highlight">무비판적으로 수용</span>할 확률이 높습니다.</p>
+                </div>
+                <div class="service-subject-research-section">
+                    <p class="service-subject-research-title">PTA & Co.는 어떻게 청소년들의 삶을 효과적으로 망치기 위해 연구할까요?</p>
+                    <div class="service-subject-research-carousel">
+                        <div class="service-subject-research-card carousel-slide active">
+                            <div class="service-subject-research-card-source">
+                                <p class="research-card-source-text">출처 : 포항 공대 신문</p>
+                                <p class="research-card-source-credit">Icons made by Those Icons / Sir.Vector / Freepik from Flaticon</p>
+                            </div>
+                            <p class="service-subject-research-card-title">스마트폰 과의존 위험군</p>
+                            <div class="research-card-item">
+                                <span class="research-card-label research-card-label-1">영유아</span>
+                                <img src="images/group4.png" alt="그룹3" class="research-card-image">
+                                <div class="research-card-box research-card-box-1"><span class="research-card-box-text research-card-box-text-1">25 %</span></div>
+                            </div>
+                            <div class="research-card-item">
+                                <span class="research-card-label research-card-label-2">성인</span>
+                                <img src="images/group5.png" alt="그룹4" class="research-card-image">
+                                <div class="research-card-box research-card-box-2"><span class="research-card-box-text research-card-box-text-2">22.7 %</span></div>
+                            </div>
+                            <div class="research-card-item">
+                                <span class="research-card-label research-card-label-3">청소년</span>
+                                <img src="images/group6.png" alt="그룹4" class="research-card-image">
+                                <div class="research-card-box research-card-box-3"><span class="research-card-box-text research-card-box-text-3">40.1 %</span></div>
+                            </div>
+                        </div>
+                        <div class="service-subject-research-card carousel-slide">
+                            <p class="service-subject-research-card-title">청소년 하루 평균 sns 사용 시간</p>
+                            <div class="research-card-boxes-container">
+                                <div class="research-card-box-row">
+                                    <span class="research-card-box-label research-card-box-label-1">1시간 미만</span>
+                                    <div class="research-card-box-item research-card-box-item-1"><span class="research-card-box-item-text research-card-box-item-text-1">5.3 %</span></div>
+                                </div>
+                                <div class="research-card-box-row">
+                                    <span class="research-card-box-label research-card-box-label-2">1시간 이상 ~ 3시간 미만</span>
+                                    <div class="research-card-box-item research-card-box-item-2"><span class="research-card-box-item-text research-card-box-item-text-2">21.1 %</span></div>
+                                </div>
+                                <div class="research-card-box-row">
+                                    <span class="research-card-box-label research-card-box-label-3">3시간 이상 ~ 5시간 미만</span>
+                                    <div class="research-card-box-item research-card-box-item-3"><span class="research-card-box-item-text research-card-box-item-text-3">47.4 %</span></div>
+                                </div>
+                                <div class="research-card-box-row">
+                                    <span class="research-card-box-label research-card-box-label-4">5시간 이상 ~ 8시간 미만</span>
+                                    <div class="research-card-box-item research-card-box-item-4"><span class="research-card-box-item-text research-card-box-item-text-4">21.1 %</span></div>
+                                </div>
+                                <div class="research-card-box-row">
+                                    <span class="research-card-box-label research-card-box-label-5">8시간 이상</span>
+                                    <div class="research-card-box-item research-card-box-item-5"><span class="research-card-box-item-text research-card-box-item-text-5">5.3 %</span></div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="carousel-arrow carousel-arrow-prev" aria-label="이전" style="display: none;">‹</button>
+                        <button class="carousel-arrow carousel-arrow-next" aria-label="다음">›</button>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section id="section-chairman" class="snap-section web-content p-16 flex flex-col justify-center items-center">
+            <h2 class="text-4xl font-extrabold mb-6 body-title">CEO</h2>
+            <div class="chairman-content grid grid-cols-2 gap-12 w-full max-w-5xl items-center">
+                
+                <div class="chairman-photo-wrapper">
+                    <div class="chairman-photo flex justify-end">
+                        <img id="chairman-photo-img" src="images/ceo_placeholder_2.png" alt="CEO 사진" class="w-64 h-64 object-cover shadow-lg">
+                    </div>
+                    <div class="chairman-career">
+                        <h4 class="chairman-career-title">경력</h4>
+                        <div class="chairman-career-list">
+                            <p class="chairman-career-item">[2020-2024] '글로벌 팬데믹 대응 연합' 데이터 분석 총괄</p>
+                            <p class="chairman-career-item">[2027년 - 2030년] '선구자 연구소 (Pioneer Labs)' 선임 연구원</p>
+                            <p class="chairman-career-item">[2029년 - 2035년] '소셜웨이브 코프' 데이터 사이언스 부문 이사</p>
+                            <p class="chairman-career-item">[2037년 - 2042년] 다수의 기술 혁신 스타트업 기술 고문</p>
+                            <p class="chairman-career-item">[2043년] PTA & Co. 창립 및 대표이사 취임</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="chairman-text text-left">
+                    <div class="chairman-text-box">
+                        <h3 class="text-3xl font-bold mb-4">청소년들은 계속 저희를 선택하게 될 것입니다.</h3>
+                        <p class="text-lg leading-relaxed pretendard-text">
+                            PTA & Co.는 오랜 연구 끝에 청소년들이 아동이나 성인들에 비해
+                            SNS에 취약하다는 인사이트를 도출하게 되었습니다.<br><br>
+                            PTA & Co.는 어떠한 수단을 사용해서라도 청소년들이 <br>헤어나올 수 없는
+                            SNS 서비스를 제공할 수 있도록 노력할 것입니다.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="chairman-history-section">
+                <h4 class="chairman-history-title">PTA & Co.의 연혁</h4>
+                <div class="chairman-history-tabs">
+                    <button class="history-tab active" data-year="2043">2043</button>
+                    <button class="history-tab" data-year="2044">2044</button>
+                    <button class="history-tab" data-year="2045">2045</button>
+                    <button class="history-tab" data-year="2046">2046</button>
+                    <button class="history-tab" data-year="2047">2047</button>
+                </div>
+                <div class="chairman-history-content">
+                    <div class="history-content-item active" data-year="2043">
+                        <h5 class="history-content-title">창립 및 비전 수립</h5>
+                        <p class="history-content-text">청소년 행동과 인지를 분석하는 혁신적인 알고리즘 개발을 목표로 PTA & Co.를 창립했습니다.  청소년층의 SNS 심리적 취약성에 대한 심층 연구 결과를 바탕으로 'Post-Truth Algorithm(PTA)' 개발에 착수했으며, 이 과정에서 "어떠한 수단을 사용해서라도 청소년들이 헤어나올 수 없는 SNS 서비스 제공"이라는 PTA & Co.의 명확한 비전이 확립되었습니다.</p>
+                    </div>
+                    <div class="history-content-item" data-year="2044">
+                        <h5 class="history-content-title">기술 고도화 및 초기 시장 침투</h5>
+                        <p class="history-content-text">PTA 알파 버전 공개를 통해 특정 테스트 그룹에서 사용자 몰입도와 체류 시간 증대에 폭발적인 효과를 입증하며 잠재력을 과시했습니다. 여기에 그치지 않고 인간 행동 심리 및 신경과학 기반 데이터 분석 기술을 PTA에 접목하여 알고리즘의 정교함을 극대화했습니다.</p>
+                    </div>
+                    <div class="history-content-item" data-year="2045">
+                        <h5 class="history-content-title">대규모 데이터 기반 성장 가속화</h5>
+                        <p class="history-content-text">청소년의 모든 개인정보를 비밀리에 심층 분석하는 '초정밀 인지 편향 예측 시스템'을 도입했습니다. 이 시스템은 객관적 사실보다 감정적 반응을 유도하는 콘텐츠를 청소년에게 우선 노출하여 청소년 유지율 및 체류 시간을 확보하였고, 이는 성공적으로 시장 지배력 확대로 이어졌습니다.</p>
+                    </div>
+                    <div class="history-content-item" data-year="2046">
+                        <h5 class="history-content-title">수익 모델 혁신 및 시장 리더십 강화</h5>
+                        <p class="history-content-text">청소년의 행동 이력, 재정 단서 등을 종합 분석하여 상업적 메시지에 가장 수용적인 순간을 포착하는 '수익 직결 행동 전환 최적화' 시스템을 완성했습니다. 이를 통해 청소년의 위치와 필요에 따라 원하는 정보를 실시간으로 제공합니다. 이를 통해 파격적인 성장률과 압도적인 수익성을 바탕으로 글로벌 IT 업계의 핵심 플레이어로 급부상했습니다.</p>
+                    </div>
+                    <div class="history-content-item" data-year="2047">
+                        <h5 class="history-content-title">지속 가능한 영향력 확보 및 대기업 도약</h5>
+                        <p class="history-content-text">경쟁사 및 관련 기술 스타트업을 인수합병하여 업계 리더의 위치를 확고히 했습니다. 이를 통해 청소년 개개인의 인지 현실을 지배하고 사회 전반에 막대한 영향력을 행사하는 글로벌 대기업으로 명실상부하게 자리매김했습니다. PTA & Co.의 성공은 데이터 기반의 심리 조작과 비윤리적 콘텐츠 제공 전략이 어떻게 청소년의 인생에 막대한 영향을 끼치는지 보여주는 사례로 평가됩니다.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section id="section-dept" class="snap-section web-content p-16 flex flex-col justify-center items-center">
+            <div class="max-w-7xl w-full">
+                <h2 class="text-4xl font-extrabold mb-12 body-title">부서 소개</h2>
+            </div>
+            <div class="dept-grid-container">
+                <div class="dept-section dept-section-1" data-dept="data">
+                    <img src="images/dept01.png" alt="데이터 수집부" class="dept-image">
+                    <div class="dept-overlay">
+                        <h3 class="dept-name">데이터 수집부</h3>
+                    </div>
+                </div>
+                <div class="dept-section dept-section-2" data-dept="algo">
+                    <img src="images/dept02.png" alt="맞춤 알고리즘 운영부" class="dept-image">
+                    <div class="dept-overlay">
+                        <h3 class="dept-name">맞춤 알고리즘 운영부</h3>
+                    </div>
+                </div>
+                <div class="dept-section dept-section-3" data-dept="ui">
+                    <img src="images/dept03.png" alt="사용자 피드 설계부" class="dept-image">
+                    <div class="dept-overlay">
+                        <h3 class="dept-name">사용자 피드 설계부 (UI)</h3>
+                    </div>
+                </div>
+                <div class="dept-section dept-section-4" data-dept="ux">
+                    <img src="images/dept04.png" alt="사용자 피드 운영부" class="dept-image">
+                    <div class="dept-overlay">
+                        <h3 class="dept-name">사용자 피드 운영부 (UX)</h3>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 부서 상세 모달 -->
+            <div id="dept-modal" class="dept-modal">
+                <div class="dept-modal-content">
+                    <button class="dept-modal-close">&times;</button>
+                    <img class="dept-modal-image" src="" alt="부서 이미지">
+                </div>
+            </div>
+        </section>
+
+        <section id="poster-area" class="snap-section web-content poster-area flex flex-col justify-center items-center">
+            <div class="poster-left-column">
+                <div class="poster-item">
+                    <img src="images/poster02.png" alt="포스터2" class="poster-side-image">
+                    <p class="poster-label poster-label-02">데이터 코인</p>
+                </div>
+                <div class="poster-item">
+                    <img src="images/poster03.png" alt="포스터3" class="poster-side-image">
+                    <p class="poster-label poster-label-03">개인화 알고리즘</p>
+                </div>
+                <div class="poster-item">
+                    <img src="images/poster04.png" alt="포스터4" class="poster-side-image">
+                    <p class="poster-label poster-label-04">컨텐츠, 푸시알림</p>
+                </div>
+                <div class="poster-item">
+                    <img src="images/poster05.png" alt="포스터5" class="poster-side-image">
+                    <p class="poster-label poster-label-05">운영 두뇌</p>
+                </div>
+            </div>
+            <div class="poster-main-wrapper">
+                <img src="images/poster01.png" alt="포스터" class="poster-main-image">
+                <p class="poster-dept-label poster-dept-01">데이터 수집부</p>
+                <p class="poster-dept-label poster-dept-02">맞춤 알고리즘<br>운영부</p>
+                <p class="poster-dept-label poster-dept-03">사용자 피드<br>설계부(UI)</p>
+                <p class="poster-dept-label poster-dept-04">사용자 피드<br>운영부(UX)</p>
+            </div>
+            
+            <!-- Poster 데이터 모달 -->
+            <div id="poster-data-modal" class="poster-data-modal">
+                <div class="poster-data-modal-content">
+                    <button class="poster-data-modal-close">&times;</button>
+                    <div class="poster-data-image-wrapper">
+                        <img class="poster-data-image" src="" alt="데이터 이미지">
+                        <div class="hover-area hover-area-1" data-subdata="subdata01.png"></div>
+                        <div class="hover-area hover-area-2" data-subdata="subdata02.png"></div>
+                        <div class="hover-area hover-area-3" data-subdata="subdata03.png"></div>
+                        <div class="hover-area hover-area-4" data-subdata="subdata04.png"></div>
+                        <div class="hover-area hover-area-5" data-subdata="subdata05.png"></div>
+                        <img class="poster-subdata-image" src="" alt="서브 데이터 이미지" style="display: none;">
+                        <button class="poster-zoom-toggle" style="display: none;">🔍</button>
+                    </div>
+                </div>
+            </div>
+            
+            <footer class="main-footer">
+                <div class="footer-left">
+                    <img src="images/schlogo.png" alt="SCH Logo" class="footer-logo">
+                    <span class="footer-studio-text">Design Convergence Studio(1)</span>
+                </div>
+                <div class="footer-right">
+                    <span class="footer-copyright">© 2025 Post-Truth Algorithm & Co. Rights Reserved</span>
+                </div>
+            </footer>
+        </section>
+
+        
+        <section id="section-game" class="full-screen-game hidden bg-gray-900 text-white flex justify-center items-center">
+            <div class="text-center">
+                <h2 class="text-6xl font-extrabold text-red-500 mb-8">Physical interaction</h2>
+                <p class="text-2xl mb-12">Play post-truth algorithm & Co.</p>
+                <button id="start-game-btn" class="bg-red-600 hover:bg-red-700 text-white font-bold py-4 px-10 rounded-full text-xl transition duration-300">
+                    게임 시작
+                </button>
+            </div>
+        </section>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
+</body>
+</html>
